@@ -1,4 +1,4 @@
-import { GetAvailableThemeNames } from "@vero/gui-theme"
+import { useDebugThemeSwitcher } from "@vero/gui-theme"
 import { location } from "@vero/util/location"
 import { DEBUG } from "@vero/util/other"
 import { useEffect } from "react"
@@ -7,7 +7,7 @@ import { ThemeBackground } from "./components/theme-background"
 import "./global-style.css"
 import { Pages } from "./pages"
 import { themeNameSetting } from "./theme"
-import { editTranslationState, LanguageEditToolbar, languageSetting } from "./translation"
+import { editTranslationState, LanguageEditToolbar, languageSetting, useDebugLanguageSwitcher } from "./translation"
 import { AppUpdater } from "./widgets/app-updater"
 import { NavigationDrawer } from "./widgets/navigation-drawer"
 
@@ -26,51 +26,12 @@ const useQuerySettingsOverride = () => {
 	}, [search.lang])
 }
 
-const useDebugKeys = () => {
-	if (DEBUG) {
-		useEffect(() => {
-			let themes = [...GetAvailableThemeNames()].filter((a) => a && a !== "auto")
-			let i = 0
-			let cb = (e: KeyboardEvent) => {
-				if (document.activeElement?.nodeName === "INPUT") {
-					return
-				}
-
-				if (e.key === "t") {
-					themeNameSetting.value = themes[i]
-
-					i++
-					if (i >= themes.length) {
-						i = 0
-					}
-					console.log("changed theme to " + themes[i])
-				}
-				if (e.key === "l") {
-					if (languageSetting.value === "no") {
-						languageSetting.value = "en"
-					} else {
-						languageSetting.value = "no"
-					}
-				}
-			}
-			window.addEventListener("keypress", cb)
-
-			return () => {
-				window.removeEventListener("keypress", cb)
-			}
-		}, [])
-	}
-}
-
 const Main = () => {
-	// DBEUG will not change at runtime
 	if (DEBUG) {
-		// eslint-disable-next-line
 		editTranslationState.use()
-		// eslint-disable-next-line
 		useQuerySettingsOverride()
-		// eslint-disable-next-line
-		useDebugKeys()
+		useDebugThemeSwitcher()
+		useDebugLanguageSwitcher()
 	}
 
 	return (

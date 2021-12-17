@@ -10,7 +10,7 @@ import { CopyToClipboard } from "@vero/util/other"
 import { storageGetItem, storageSetItem } from "@vero/util/storage"
 import moment from "moment"
 import "moment/locale/nb"
-import React, { ReactNode, useState } from "react"
+import React, { ReactNode, useState, useEffect } from "react"
 import { Showcase } from "./showcase"
 
 export const autosize = require("autosize")
@@ -330,3 +330,26 @@ Showcase("translation", () => {
 		</Column>
 	)
 })
+
+export const useDebugLanguageSwitcher = () => {
+	useEffect(() => {
+		let cb = (e: KeyboardEvent) => {
+			if (document.activeElement?.nodeName === "INPUT") {
+				return
+			}
+
+			if (e.key === "l") {
+				if (languageSetting.value === "no") {
+					languageSetting.value = "en"
+				} else {
+					languageSetting.value = "no"
+				}
+			}
+		}
+		window.addEventListener("keypress", cb)
+
+		return () => {
+			window.removeEventListener("keypress", cb)
+		}
+	}, [])
+}

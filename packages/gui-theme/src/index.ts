@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+import { DEBUG } from "@vero/util/other"
 // normalizes all css
 import "normalize.css"
 
@@ -56,4 +58,31 @@ export const useTheme = () => {
 	}
 
 	return env.singleton as BaseTheme
+}
+
+export const useDebugThemeSwitcher = () => {
+	useEffect(() => {
+		let themes = [...GetAvailableThemeNames()].filter((a) => a && a !== "auto")
+		let i = 0
+		let cb = (e: KeyboardEvent) => {
+			if (document.activeElement?.nodeName === "INPUT") {
+				return
+			}
+
+			if (e.key === "t") {
+				setCurrentTheme(themes[i])
+
+				i++
+				if (i >= themes.length) {
+					i = 0
+				}
+				console.log("changed theme to " + themes[i])
+			}
+		}
+		window.addEventListener("keypress", cb)
+
+		return () => {
+			window.removeEventListener("keypress", cb)
+		}
+	}, [])
 }
