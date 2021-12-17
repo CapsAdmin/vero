@@ -9,7 +9,7 @@ importers:
     specifiers:
       '@types/react': ^17.0.37
       '@types/react-dom': ^17.0.11
-      '@vero/gui': workspace:^1.0.0
+      '@vero/gui': workspace
       create-serve: ^1.0.1
       esbuild: ^0.14.5
       esbuild-plugin-import-map: ^2.1.0

@@ -13,7 +13,7 @@
 		"typescript": "^4.5.4"
 	},
 	"dependencies": {
-		"@vero/gui": "workspace:^1.0.0",
+		"@vero/gui": "workspace",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-native-web": "^0.17.5"
