@@ -1,4 +1,4 @@
-import parts from "assets/avatars/parts.json"
+import parts from "@frontend/assets/avatars/parts.json"
 import React from "react"
 import { Box } from "../components/box"
 import { Clickable } from "../components/interactive/clickable"

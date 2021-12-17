@@ -1,9 +1,7 @@
 import { location } from "@frontend/other/location"
 import { pages } from "@frontend/other/pages"
-import React from "react"
 import { Page } from "./components/layout/page"
 import { Text } from "./typography"
-
 export { pages } from "@frontend/other/pages"
 
 export const Pages = () => {

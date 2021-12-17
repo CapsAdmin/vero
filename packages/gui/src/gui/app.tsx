@@ -26,8 +26,8 @@ const useQuerySettingsOverride = () => {
 }
 
 const useDebugKeys = () => {
-	useEffect(() => {
-		if (DEBUG) {
+	if (DEBUG) {
+		useEffect(() => {
 			let themes = [...GetAvailableThemeNames()].filter((a) => a && a !== "auto")
 			let i = 0
 			let cb = (e: KeyboardEvent) => {
@@ -57,8 +57,8 @@ const useDebugKeys = () => {
 			return () => {
 				window.removeEventListener("keypress", cb)
 			}
-		}
-	}, [])
+		}, [])
+	}
 }
 
 const Main = () => {

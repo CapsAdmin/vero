@@ -352,12 +352,12 @@ export class JRPGTheme extends BaseTheme {
 	}
 
 	fonts = SetupFontFace({
-		heading: import("assets/fonts/exo2-regular.ttf"),
-		"body-weak": import("assets/fonts/exo2-light.ttf"),
-		body: import("assets/fonts/exo2-regular.ttf"),
-		"body-medium": import("assets/fonts/exo2-regular.ttf"),
-		"body-strong": import("assets/fonts/exo2-regular.ttf"),
-		monospace: import("assets/fonts/FoundryMonolinePN-Light.ttf"),
+		heading: import("@frontend/assets/fonts/exo2-regular.ttf"),
+		"body-weak": import("@frontend/assets/fonts/exo2-light.ttf"),
+		body: import("@frontend/assets/fonts/exo2-regular.ttf"),
+		"body-medium": import("@frontend/assets/fonts/exo2-regular.ttf"),
+		"body-strong": import("@frontend/assets/fonts/exo2-regular.ttf"),
+		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
 	fontStyle = {
 		textShadow: "0.05em 0.05em 1px rgba(0,0,0,0.5)",

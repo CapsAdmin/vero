@@ -11,7 +11,6 @@ import { UserAvatar } from "../components/user-avatar"
 import { H1 } from "../showcase/typography"
 import { avatar } from "./avatar"
 import { enableDrawer } from "./navigation-drawer"
-import { useWorkDays } from "@frontend/api/driver-resources/work-days"
 
 export const BackButton = (props: { color?: ThemeColor }) => {
 	const theme = useTheme()

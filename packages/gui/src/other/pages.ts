@@ -1,6 +1,6 @@
 import { Clamp } from "@frontend/other/other"
 import { useEffect, useRef, useState } from "react"
-import { getDriverId } from "@frontend/api/driver-resources/userdata";
+import { getDriverId } from "@frontend/api/driver-resources/userdata"
 
 type PageRenderer = (props?: { path?: string }) => JSX.Element | null
 class PageManager {
@@ -15,16 +15,7 @@ class PageManager {
 	}
 
 	Find(path: string) {
-		if (!getDriverId()) {
-			if (path.split('/')[0] !== 'onboarding' && path !== 'feedback') {
-				path = 'onboarding/acceptedterms'
-			}
-		}
 		let FoundPage = this.pages.get(path)
-
-		if (!FoundPage && this.pages.has(path + "/index")) {
-			FoundPage = this.pages.get(path + "/index")
-		}
 
 		if (!FoundPage) {
 			return this.pages.get("not-found")!

@@ -1,6 +1,6 @@
 import { color_util } from "@frontend/other/colors"
 import { Hash, RandomRange } from "@frontend/other/other"
-import parts from "assets/avatars/parts.json"
+import parts from "@frontend/assets/avatars/parts.json"
 import React, { useEffect, useState } from "react"
 import { Box } from "../components/box"
 import { Column } from "../components/layout/row-column"

@@ -14,7 +14,6 @@ import { URL } from "../components/interactive/url"
 import { Gutter } from "../components/layout/gutter"
 import { Icon } from "../themes/base"
 import { AvatarExperienceBar } from "./avatar-experience-bar"
-import { useWorkDays } from "@frontend/api/driver-resources/work-days"
 
 export const enableDrawer = new Observer(false)
 enableDrawer.subscribe((b) => {
@@ -164,7 +163,6 @@ export const NavigationDrawer = () => {
 							color="negative"
 							size="L"
 							onClick={async () => {
-								await api.Logout()
 								setDrawerEnabled(false)
 								location.Replace("/")
 							}}

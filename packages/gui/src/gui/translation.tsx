@@ -105,6 +105,7 @@ const EditableText = (props: { strong?: boolean; translationKey: string; env: { 
 							save()
 							return false
 						}
+						return true
 					}}
 					placeholder={props.translationKey}
 					onFocus={(e) => e.target.select()}
@@ -304,12 +305,12 @@ export const FormatDateRange = (date: Date, range: "month" | "week" | "day") => 
 	if (range === "day") return FormatDate(date, "Do MMMM YYYY")
 	if (range === "month") return FormatDate(date, "MMMM YYYY")
 
-	if (range === "week")
-		return (
-			<>
-				{t("DateRangeWeek")} {FormatDate(date, "WW YYYY")}
-			</>
-		)
+	//if (range === "week")
+	return (
+		<>
+			{t("DateRangeWeek")} {FormatDate(date, "WW YYYY")}
+		</>
+	)
 }
 
 Showcase("translation", () => {

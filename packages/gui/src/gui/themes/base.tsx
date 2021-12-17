@@ -268,10 +268,6 @@ const PNG = (promise: Promise<{ default: string }>) => {
 
 		// eslint-disable-next-line react-hooks/rules-of-hooks
 		useEffect(() => {
-			// jest complains about updating null components
-			// but it's only here for some reason
-			if (process.env.JEST_WORKER_ID !== undefined) return
-
 			let unmounted = false
 
 			promise.then((blob) => {
@@ -504,12 +500,12 @@ const icons = {
 
 export class BaseTheme {
 	fonts = SetupFontFace({
-		heading: import("assets/fonts/ChangaOne-Regular.ttf"),
-		"body-weak": import("assets/fonts/PostenSans-Light.ttf"),
-		body: import("assets/fonts/PostenSans-Regular.ttf"),
-		"body-medium": import("assets/fonts/PostenSans-Bold.ttf"),
-		"body-strong": import("assets/fonts/PostenSans-Bold.ttf"),
-		monospace: import("assets/fonts/FoundryMonolinePN-Light.ttf"),
+		heading: import("@frontend/assets/fonts/ChangaOne-Regular.ttf"),
+		"body-weak": import("@frontend/assets/fonts/PostenSans-Light.ttf"),
+		body: import("@frontend/assets/fonts/PostenSans-Regular.ttf"),
+		"body-medium": import("@frontend/assets/fonts/PostenSans-Bold.ttf"),
+		"body-strong": import("@frontend/assets/fonts/PostenSans-Bold.ttf"),
+		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
 	textSizes = {
 		XS: 12,

@@ -1,5 +1,15 @@
 import esbuild from "esbuild"
 import fs from "fs-extra"
+import serve, { error, log } from "create-serve"
+import { spawn } from "child_process"
+
+const tsc = () => {
+	console.time("typecheck")
+
+	spawn("pnpm", ["tsc"], { stdio: "inherit" }).on("exit", (error) => {
+		console.timeEnd("typecheck")
+	})
+}
 
 esbuild
 	.build({
@@ -34,8 +44,22 @@ esbuild
 				},
 			},
 		],
+		watch: {
+			onRebuild(err) {
+				tsc()
+				serve.update()
+				err ? error("× Failed") : log("✓ Updated")
+			},
+		},
 	})
 	.catch(() => process.exit(1))
 
 fs.emptyDirSync("./public/assets/")
 fs.copySync("../gui/src/assets/", "./public/assets/")
+
+tsc()
+
+serve.start({
+	port: 3000,
+	root: "./public",
+})

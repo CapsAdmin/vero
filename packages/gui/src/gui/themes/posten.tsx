@@ -91,12 +91,12 @@ export class Posten1Theme extends BaseTheme {
 		},
 	}
 	fonts = SetupFontFace({
-		heading: import("assets/fonts/FoundryMonolinePN-Bold.ttf"),
-		"body-weak": import("assets/fonts/FoundryMonolinePN-Regular.ttf"),
-		body: import("assets/fonts/FoundryMonolinePN-Medium.ttf"),
-		"body-medium": import("assets/fonts/FoundryMonolinePN-Medium.ttf"),
-		"body-strong": import("assets/fonts/FoundryMonolinePN-Bold.ttf"),
-		monospace: import("assets/fonts/FoundryMonolinePN-Light.ttf"),
+		heading: import("@frontend/assets/fonts/FoundryMonolinePN-Bold.ttf"),
+		"body-weak": import("@frontend/assets/fonts/FoundryMonolinePN-Regular.ttf"),
+		body: import("@frontend/assets/fonts/FoundryMonolinePN-Medium.ttf"),
+		"body-medium": import("@frontend/assets/fonts/FoundryMonolinePN-Medium.ttf"),
+		"body-strong": import("@frontend/assets/fonts/FoundryMonolinePN-Bold.ttf"),
+		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
 	textSizes = {
 		XS: 15,

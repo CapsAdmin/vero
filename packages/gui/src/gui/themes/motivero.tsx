@@ -76,12 +76,12 @@ export class MotiveroTheme extends BaseTheme {
 	lineHeight = 7
 
 	fonts = SetupFontFace({
-		heading: import("assets/fonts/PostenSans-Medium.ttf"),
-		"body-weak": import("assets/fonts/PostenSans-Light.ttf"),
-		body: import("assets/fonts/PostenSans-Regular.ttf"),
-		"body-medium": import("assets/fonts/PostenSans-Medium.ttf"),
-		"body-strong": import("assets/fonts/PostenSans-Bold.ttf"),
-		monospace: import("assets/fonts/FoundryMonolinePN-Light.ttf"),
+		heading: import("@frontend/assets/fonts/PostenSans-Medium.ttf"),
+		"body-weak": import("@frontend/assets/fonts/PostenSans-Light.ttf"),
+		body: import("@frontend/assets/fonts/PostenSans-Regular.ttf"),
+		"body-medium": import("@frontend/assets/fonts/PostenSans-Medium.ttf"),
+		"body-strong": import("@frontend/assets/fonts/PostenSans-Bold.ttf"),
+		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
 	textSizes = {
 		XS: 8,

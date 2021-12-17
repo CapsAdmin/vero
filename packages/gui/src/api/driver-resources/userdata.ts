@@ -43,13 +43,13 @@ export const getRole = () => {
 }
 
 export const isAdmin = () => {
-	if (!userDataState.value) return
+	if (!userDataState.value) return false
 	const role = getRole()
 	return role === "admin"
 }
 
 export const isTransportManager = () => {
-	if (!userDataState.value) return
+	if (!userDataState.value) return false
 	const role = getRole()
 	return role === "admin" || role === "transportleder"
 }

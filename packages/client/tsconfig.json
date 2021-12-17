@@ -1,6 +1,10 @@
 {
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {
-        "jsx": "react"
-    }
+	"extends": "../../tsconfig.json",
+	"baseUrl": "./src",
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"paths": {
+			"@frontend/*": ["../gui/src/*"]
+		}
+	}
 }

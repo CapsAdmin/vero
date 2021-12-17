@@ -177,11 +177,9 @@ const useScaler = (size: string, widths: number[], minimum: string) => {
 	return size
 }
 
-export function SetupFontFace(
-	fonts: {
-		[key in "body" | "body-strong" | "body-weak" | "body-medium" | "heading" | "monospace"]: Promise<any>
-	},
-) {
+export function SetupFontFace(fonts: {
+	[key in "body" | "body-strong" | "body-weak" | "body-medium" | "heading" | "monospace"]: Promise<any>
+}) {
 	const output = {} as { [key in keyof typeof fonts]: string }
 
 	for (const [name, font] of pairs(fonts)) {
@@ -199,6 +197,8 @@ export function SetupFontFace(
 				`)
 		})()
 	}
+
+	console.log(output)
 
 	return output
 }
@@ -323,7 +323,7 @@ export const Text = (props: {
 	const node = React.createElement(
 		props.element || "div",
 		{
-			className: props.noAlignmentHacks ? props.className || "" : `${props.className} ${textFixup(style.fontFamily!, fontSize, theme.lineHeight)}`,
+			className: props.noAlignmentHacks ? props.className || "" : `${props.className} ${textFixup(style.fontFamily, fontSize, theme.lineHeight)}`,
 			...props.props,
 			style: { ...style, ...theme.fontStyle, ...props.style },
 		},
