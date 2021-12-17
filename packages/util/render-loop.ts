@@ -1,4 +1,4 @@
-import { RandomRange } from "@frontend/other/other"
+import { RandomRange } from "./other"
 
 type RenderCallback = (deltaTime: number, progress?: number) => boolean
 

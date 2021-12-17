@@ -1,9 +1,8 @@
 import { Column, Row } from "@frontend/gui/components/layout/row-column"
-import { ThemeColor, useTheme } from "@frontend/gui/theme"
-import { Icon } from "@frontend/gui/themes/base"
+import { ThemeColor, useTheme, Icon } from "@vero/gui-theme"
 import { Text } from "@frontend/gui/typography"
 import React, { ReactNode, useEffect, useRef, useState } from "react"
-import { color_util } from "../../../other/colors"
+import { color_util } from "@vero/util/colors"
 import { ClickableIcon } from "./clickable-icon"
 import { Input } from "./input"
 

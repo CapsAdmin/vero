@@ -1,8 +1,8 @@
 import { AbsolutePositionCenter } from "@frontend/gui/components/absolute-position-center"
 import React from "react"
-import { ThemeColor, useTheme } from "@frontend/gui/theme"
+import { ThemeColor, useTheme } from "@vero/gui-theme"
 import { Text } from "../typography"
-import { color_util } from "@frontend/other/colors"
+import { color_util } from "@vero/util/colors"
 export const HorizontalPercentageBar = (props: { thin?: boolean; color?: ThemeColor; value: number }) => {
 	const theme = useTheme()
 

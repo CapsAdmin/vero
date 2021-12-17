@@ -1,5 +1,5 @@
 import React from "react"
-import { Icon } from "../themes/base"
+import { Icon } from "@vero/gui-theme"
 import { languageSetting } from "../translation"
 import { Text } from "../typography"
 import { Clickable } from "./interactive/clickable"

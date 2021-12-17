@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactNode, useEffect, useRef, useState } from "react"
 import { Showcase } from "../showcase"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 import { Text } from "../typography"
 import { Box } from "./box"
 import { Interactive } from "./interactive/interactive"

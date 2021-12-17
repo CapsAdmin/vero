@@ -1,9 +1,9 @@
 import { Column } from "@frontend/gui/components/layout/row-column"
 import { Text } from "@frontend/gui/typography"
 import { driverPointsToLevel } from "@frontend/gui/widgets/avatar-experience-bar"
-import { color_util } from "@frontend/other/colors"
+import { color_util } from "@vero/util/colors"
 import React from "react"
-import { ThemeSizes, useTheme } from "../theme"
+import { ThemeSizes, useTheme } from "@vero/gui-theme"
 import { AvatarImage, AvatarData } from "../widgets/avatar"
 import { Box } from "./box"
 

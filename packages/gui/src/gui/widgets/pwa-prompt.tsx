@@ -9,14 +9,14 @@ import { modalQueueState, ShowModal } from "@frontend/gui/components/modal-layer
 import { useTranslation } from "@frontend/gui/translation"
 import { Text } from "@frontend/gui/typography"
 import { ConfirmModal } from "@frontend/gui/widgets/confirm"
-import { Observer } from "@frontend/other/observer"
-import { IsAndroid, IsChrome, IsDesktop, IsFirefox, IsIOS, IsPWA } from "@frontend/other/browser"
+import { Observer } from "@vero/util/observer"
+import { IsAndroid, IsChrome, IsDesktop, IsFirefox, IsIOS, IsPWA } from "@vero/util/browser"
 import React, { useState } from "react"
 import { FaArrowDown, FaArrowUp } from "react-icons/fa"
 import { IoMdClose } from "react-icons/io"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 import { isAdmin, useUserData } from "@frontend/api/driver-resources/userdata"
-import { Setting } from "@frontend/app/settings"
+import { Setting } from "@vero/util/settings"
 
 /**
  * The BeforeInstallPromptEvent is fired at the Window.onbeforeinstallprompt handler

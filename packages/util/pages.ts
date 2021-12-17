@@ -1,4 +1,4 @@
-import { Clamp } from "@frontend/other/other"
+import { Clamp } from "./other"
 import { useEffect, useRef, useState } from "react"
 import { getDriverId } from "@frontend/api/driver-resources/userdata"
 

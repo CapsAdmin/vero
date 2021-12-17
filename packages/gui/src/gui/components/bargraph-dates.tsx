@@ -1,6 +1,6 @@
 import { moment } from "@frontend/app/thirdparty"
 import React, { ReactNode } from "react"
-import { ThemeColor, useTheme } from "../theme"
+import { ThemeColor, useTheme } from "@vero/gui-theme"
 import { Grid } from "./grid"
 
 const roundToNearest50 = (val: number) => val - (val % 50) + 50

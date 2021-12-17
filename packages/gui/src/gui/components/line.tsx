@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import { ThemeColor, useTheme } from "../theme"
+import { ThemeColor, useTheme } from "@vero/gui-theme"
 
 export const Line = (props: { color?: ThemeColor; strong?: boolean; vertical?: boolean; length?: string }) => {
 	const theme = useTheme()

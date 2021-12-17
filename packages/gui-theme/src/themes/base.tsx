@@ -1,15 +1,13 @@
-import { chroma } from "@frontend/app/thirdparty"
-import SVGBackground from "@frontend/assets/images/background.svg"
-import { Showcase } from "@frontend/gui/showcase"
-import { BorderSizes, BuildShadow, ThemeColor, ThemeSizes, useTheme } from "@frontend/gui/theme"
-import { color_util } from "@frontend/other/colors"
-import { InjectCSS } from "@frontend/other/css"
+import { color_util } from "@vero/util/colors"
+import chroma from "chroma-js"
 import React, { CSSProperties, ReactElement, ReactNode, useEffect, useState } from "react"
 import { FaArrowRight, FaCaretDown, FaCheck, FaEdit, FaEye, FaEyeSlash, FaGlobe } from "react-icons/fa"
-import { Gi3DHammer, GiCaravan, GiCharm, GiDutchBike, GiHouse, GiTeamIdea, GiTiedScroll, GiTruck, GiWatch } from "react-icons/gi"
 import { GoChevronUp } from "react-icons/go"
 import { IoMdClose } from "react-icons/io"
-import { SetupFontFace } from "../typography"
+import { BorderSizes, useTheme, ThemeColor, ThemeSizes } from "../"
+import { BuildShadow, SetupFontFace } from "../util"
+import SVGBackground from "../assets/images/background.svg"
+import { InjectCSS } from "@vero/util/css"
 export interface IconProps {
 	style?: CSSProperties
 	size?: string | number
@@ -160,41 +158,6 @@ const Filter = loadSVG((color) => {
 })
 
 export type IconType = ReturnType<typeof TriangleUp>
-Showcase("icons", () => {
-	const theme = useTheme()
-	const arr = []
-	const icons = [Gi3DHammer, GiCharm, GiHouse, GiTeamIdea, GiTiedScroll, GiWatch, GiCaravan, GiTruck, GiDutchBike]
-
-	for (const icon of Object.values(theme.icons)) {
-		icons.push(icon)
-	}
-
-	for (const Icon of icons) {
-		arr.push(
-			<div
-				style={{
-					position: "relative",
-					borderColor: theme.colors.textForeground,
-					borderStyle: "solid",
-					borderWidth: "1px",
-				}}
-			>
-				<Icon size={64} color={theme.colors.textForeground} />
-				<div
-					style={{
-						position: "absolute",
-						top: "50%",
-						width: "100%",
-						height: "2px",
-						background: "rgba(255,255,0,0.85)",
-					}}
-				></div>
-			</div>,
-		)
-	}
-
-	return <div style={{ display: "flex", flexWrap: "wrap" }}>{arr}</div>
-})
 
 const ExternalLink = loadSVG((color) => (
 	<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -226,40 +189,6 @@ const colors = color_util.BuildPallete(["hsl(0, 0%, 100%)", "hsl(0, 0%, 23%)"], 
 	purple: "#9f60c2",
 	brown: "#a17247",
 })
-
-const shadow = BuildShadow([
-	{
-		x: 2,
-		y: 2,
-		blur: 1,
-		radius: 1,
-		color: color_util.ModifyAlpha(colors.black, 0.1),
-	},
-	{
-		x: 2,
-		y: 2,
-		blur: 10,
-		radius: 5,
-		color: color_util.ModifyAlpha(colors.darker, 0.05),
-	},
-])
-
-const shadowFooter = BuildShadow([
-	{
-		x: 2,
-		y: -2,
-		blur: 1,
-		radius: 1,
-		color: color_util.ModifyAlpha(colors.black, 0.1),
-	},
-	{
-		x: 2,
-		y: -2,
-		blur: 10,
-		radius: 5,
-		color: color_util.ModifyAlpha(colors.darker, 0.05),
-	},
-])
 
 const PNG = (promise: Promise<{ default: string }>) => {
 	return (props: IconProps) => {
@@ -340,7 +269,7 @@ const icons = {
 	Filter,
 	TriangleDown: FaCaretDown,
 	ExternalLink,
-	Settings: PNG(import("@frontend/assets/icons/Size=24, Icon=Settings.png")),
+	Settings: PNG(import("../assets/icons/Size=24, Icon=Settings.png")),
 	Right: FaArrowRight,
 	Close: IoMdClose,
 	ChevronUp: GoChevronUp,
@@ -348,164 +277,164 @@ const icons = {
 	Edit: FaEdit,
 	ShowPassword: FaEye,
 	HidePassword: FaEyeSlash,
-	Error: PNG(import("@frontend/assets/icons/Size=24, Icon=Error.png")),
+	Error: PNG(import("../assets/icons/Size=24, Icon=Error.png")),
 	Language: FaGlobe,
 	Loading: LoadingSpinner,
-	Home24: PNG(import("@frontend/assets/icons/Size=24, Icon=Home.png")),
-	Home32: PNG(import("@frontend/assets/icons/Size=32, Icon=Home.png")),
-	Home64: PNG(import("@frontend/assets/icons/Size=64, Icon=Home.png")),
-	Deviation16: PNG(import("@frontend/assets/icons/Size=16, Icon=Deviation.png")),
-	DriverPoints16: PNG(import("@frontend/assets/icons/Size=16, Icon=DriverPoints.png")),
-	Accuracy24: PNG(import("@frontend/assets/icons/Size=24, Icon=Accuracy.png")),
-	Driver24: PNG(import("@frontend/assets/icons/Size=24, Icon=Driver.png")),
-	PerDriver24: PNG(import("@frontend/assets/icons/Size=24, Icon=PerDriver.png")),
-	PerDay24: PNG(import("@frontend/assets/icons/Size=24, Icon=PerDay.png")),
-	PerDriverPerDay24: PNG(import("@frontend/assets/icons/Size=24, Icon=PerDriverPerDay.png")),
-	Bring24: PNG(import("@frontend/assets/icons/Size=24, Icon=Bring.png")),
-	Calendar24: PNG(import("@frontend/assets/icons/Size=24, Icon=Calendar.png")),
-	Checkmark24: PNG(import("@frontend/assets/icons/Size=24, Icon=Checkmark.png")),
-	Comment24: PNG(import("@frontend/assets/icons/Size=24, Icon=Comment.png")),
-	CubicMeter24: PNG(import("@frontend/assets/icons/Size=24, Icon=CubicMeter.png")),
-	Default24: PNG(import("@frontend/assets/icons/Size=24, Icon=Default.png")),
-	Delivery24: PNG(import("@frontend/assets/icons/Size=24, Icon=Delivery.png")),
-	Deviation24: PNG(import("@frontend/assets/icons/Size=24, Icon=Deviation.png")),
-	Dice24: PNG(import("@frontend/assets/icons/Size=24, Icon=Dice.png")),
-	DriverPoints24: PNG(import("@frontend/assets/icons/Size=24, Icon=DriverPoints.png")),
-	ExpectedPlace24: PNG(import("@frontend/assets/icons/Size=24, Icon=ExpectedPlace.png")),
-	FuriousDriver24: PNG(import("@frontend/assets/icons/Size=24, Icon=FuriousDriver.png")),
-	Ghost24: PNG(import("@frontend/assets/icons/Size=24, Icon=Ghost.png")),
-	GhostMansion24: PNG(import("@frontend/assets/icons/Size=24, Icon=GhostMansion.png")),
-	Globe24: PNG(import("@frontend/assets/icons/Size=24, Icon=Globe.png")),
-	HelpedOthers24: PNG(import("@frontend/assets/icons/Size=24, Icon=HelpedOthers.png")),
-	Innafor24: PNG(import("@frontend/assets/icons/Size=24, Icon=Innafor.png")),
-	King24: PNG(import("@frontend/assets/icons/Size=24, Icon=King.png")),
-	MissedTarget24: PNG(import("@frontend/assets/icons/Size=24, Icon=MissedTarget.png")),
-	MysteryPackage24: PNG(import("@frontend/assets/icons/Size=24, Icon=MysteryPackage.png")),
-	NPS24: PNG(import("@frontend/assets/icons/Size=24, Icon=NPS.png")),
-	NoDeliveryEvent24: PNG(import("@frontend/assets/icons/Size=24, Icon=NoDeliveryEvent.png")),
-	NoNotification24: PNG(import("@frontend/assets/icons/Size=24, Icon=NoNotification.png")),
-	Notification24: PNG(import("@frontend/assets/icons/Size=24, Icon=Notification.png")),
-	OutOfTime24: PNG(import("@frontend/assets/icons/Size=24, Icon=OutOfTime.png")),
-	Overligg24: PNG(import("@frontend/assets/icons/Size=24, Icon=Overligg.png")),
-	PackagesPerHour24: PNG(import("@frontend/assets/icons/Size=24, Icon=PackagesPerHour.png")),
-	Package16: PNG(import("@frontend/assets/icons/Size=16, Icon=Package.png")),
-	Package24: PNG(import("@frontend/assets/icons/Size=24, Icon=Package.png")),
-	Posten24: PNG(import("@frontend/assets/icons/Size=24, Icon=Posten.png")),
-	Productivity24: PNG(import("@frontend/assets/icons/Size=24, Icon=Productivity.png")),
-	Quality24: PNG(import("@frontend/assets/icons/Size=24, Icon=Quality.png")),
-	RightChevron24: PNG(import("@frontend/assets/icons/Size=24, Icon=RightChevron.png")),
-	Running24: PNG(import("@frontend/assets/icons/Size=24, Icon=Running.png")),
-	Service24: PNG(import("@frontend/assets/icons/Size=24, Icon=Service.png")),
-	Time24: PNG(import("@frontend/assets/icons/Size=24, Icon=Time.png")),
-	Trophy24: PNG(import("@frontend/assets/icons/Size=24, Icon=Trophy.png")),
-	Upload24: PNG(import("@frontend/assets/icons/Size=24, Icon=Upload.png")),
-	Van24: PNG(import("@frontend/assets/icons/Size=24, Icon=Van.png")),
-	VanFlipped24: PNG(import("@frontend/assets/icons/Size=24, Icon=VanFlipped.png")),
-	Warrior24: PNG(import("@frontend/assets/icons/Size=24, Icon=Warrior.png")),
-	Weight24: PNG(import("@frontend/assets/icons/Size=24, Icon=Weight.png")),
-	Accuracy32: PNG(import("@frontend/assets/icons/Size=32, Icon=Accuracy.png")),
-	Bring32: PNG(import("@frontend/assets/icons/Size=32, Icon=Bring.png")),
-	Calendar32: PNG(import("@frontend/assets/icons/Size=32, Icon=Calendar.png")),
-	Comment32: PNG(import("@frontend/assets/icons/Size=32, Icon=Comment.png")),
-	CubicMeter32: PNG(import("@frontend/assets/icons/Size=32, Icon=CubicMeter.png")),
-	Default32: PNG(import("@frontend/assets/icons/Size=32, Icon=Default.png")),
-	Delivery32: PNG(import("@frontend/assets/icons/Size=32, Icon=Delivery.png")),
-	Deviation32: PNG(import("@frontend/assets/icons/Size=32, Icon=Deviation.png")),
-	Dice32: PNG(import("@frontend/assets/icons/Size=32, Icon=Dice.png")),
-	DriverPoints32: PNG(import("@frontend/assets/icons/Size=32, Icon=DriverPoints.png")),
-	ExpectedPlace32: PNG(import("@frontend/assets/icons/Size=32, Icon=ExpectedPlace.png")),
-	FuriousDriver32: PNG(import("@frontend/assets/icons/Size=32, Icon=FuriousDriver.png")),
-	Ghost32: PNG(import("@frontend/assets/icons/Size=32, Icon=Ghost.png")),
-	GhostMansion32: PNG(import("@frontend/assets/icons/Size=32, Icon=GhostMansion.png")),
-	Globe32: PNG(import("@frontend/assets/icons/Size=32, Icon=Globe.png")),
-	HelpedOthers32: PNG(import("@frontend/assets/icons/Size=32, Icon=HelpedOthers.png")),
-	Innafor32: PNG(import("@frontend/assets/icons/Size=32, Icon=Innafor.png")),
-	King32: PNG(import("@frontend/assets/icons/Size=32, Icon=King.png")),
-	MissedTarget32: PNG(import("@frontend/assets/icons/Size=32, Icon=MissedTarget.png")),
-	MysteryPackage32: PNG(import("@frontend/assets/icons/Size=32, Icon=MysteryPackage.png")),
-	NPS32: PNG(import("@frontend/assets/icons/Size=32, Icon=NPS.png")),
-	NoDeliveryEvent32: PNG(import("@frontend/assets/icons/Size=32, Icon=NoDeliveryEvent.png")),
-	NoNotification32: PNG(import("@frontend/assets/icons/Size=32, Icon=NoNotification.png")),
-	Notification32: PNG(import("@frontend/assets/icons/Size=32, Icon=Notification.png")),
-	OutOfTime32: PNG(import("@frontend/assets/icons/Size=32, Icon=OutOfTime.png")),
-	Overligg32: PNG(import("@frontend/assets/icons/Size=32, Icon=Overligg.png")),
-	PackagesPerHour32: PNG(import("@frontend/assets/icons/Size=32, Icon=PackagesPerHour.png")),
-	Package32: PNG(import("@frontend/assets/icons/Size=32, Icon=Package.png")),
-	Posten32: PNG(import("@frontend/assets/icons/Size=32, Icon=Posten.png")),
-	Productivity32: PNG(import("@frontend/assets/icons/Size=32, Icon=Productivity.png")),
-	Quality32: PNG(import("@frontend/assets/icons/Size=32, Icon=Quality.png")),
-	RightChevron32: PNG(import("@frontend/assets/icons/Size=32, Icon=RightChevron.png")),
-	Running32: PNG(import("@frontend/assets/icons/Size=32, Icon=Running.png")),
-	Service32: PNG(import("@frontend/assets/icons/Size=32, Icon=Service.png")),
-	Time32: PNG(import("@frontend/assets/icons/Size=32, Icon=Time.png")),
-	Trophy32: PNG(import("@frontend/assets/icons/Size=32, Icon=Trophy.png")),
-	Upload32: PNG(import("@frontend/assets/icons/Size=32, Icon=Upload.png")),
-	Van32: PNG(import("@frontend/assets/icons/Size=32, Icon=Van.png")),
-	VanFlipped32: PNG(import("@frontend/assets/icons/Size=32, Icon=VanFlipped.png")),
-	Warrior32: PNG(import("@frontend/assets/icons/Size=32, Icon=Warrior.png")),
-	Weight32: PNG(import("@frontend/assets/icons/Size=32, Icon=Weight.png")),
-	Accuracy64: PNG(import("@frontend/assets/icons/Size=64, Icon=Accuracy.png")),
-	Bring64: PNG(import("@frontend/assets/icons/Size=64, Icon=Bring.png")),
-	Calendar64: PNG(import("@frontend/assets/icons/Size=64, Icon=Calendar.png")),
-	Comment64: PNG(import("@frontend/assets/icons/Size=64, Icon=Comment.png")),
-	CubicMeter64: PNG(import("@frontend/assets/icons/Size=64, Icon=CubicMeter.png")),
-	Default64: PNG(import("@frontend/assets/icons/Size=64, Icon=Default.png")),
-	Delivery64: PNG(import("@frontend/assets/icons/Size=64, Icon=Delivery.png")),
-	Deviation64: PNG(import("@frontend/assets/icons/Size=64, Icon=Deviation.png")),
-	Dice64: PNG(import("@frontend/assets/icons/Size=64, Icon=Dice.png")),
-	DriverPoints64: PNG(import("@frontend/assets/icons/Size=64, Icon=DriverPoints.png")),
-	ExpectedPlace64: PNG(import("@frontend/assets/icons/Size=64, Icon=ExpectedPlace.png")),
-	FuriousDriver64: PNG(import("@frontend/assets/icons/Size=64, Icon=FuriousDriver.png")),
-	Ghost64: PNG(import("@frontend/assets/icons/Size=64, Icon=Ghost.png")),
-	GhostMansion64: PNG(import("@frontend/assets/icons/Size=64, Icon=GhostMansion.png")),
-	Globe64: PNG(import("@frontend/assets/icons/Size=64, Icon=Globe.png")),
-	HelpedOthers64: PNG(import("@frontend/assets/icons/Size=64, Icon=HelpedOthers.png")),
-	Innafor64: PNG(import("@frontend/assets/icons/Size=64, Icon=Innafor.png")),
-	King64: PNG(import("@frontend/assets/icons/Size=64, Icon=King.png")),
-	MissedTarget64: PNG(import("@frontend/assets/icons/Size=64, Icon=MissedTarget.png")),
-	MysteryPackage64: PNG(import("@frontend/assets/icons/Size=64, Icon=MysteryPackage.png")),
-	NPS64: PNG(import("@frontend/assets/icons/Size=64, Icon=NPS.png")),
-	NoDeliveryEvent64: PNG(import("@frontend/assets/icons/Size=64, Icon=NoDeliveryEvent.png")),
-	NoNotification64: PNG(import("@frontend/assets/icons/Size=64, Icon=NoNotification.png")),
-	Notification64: PNG(import("@frontend/assets/icons/Size=64, Icon=Notification.png")),
-	OutOfTime64: PNG(import("@frontend/assets/icons/Size=64, Icon=OutOfTime.png")),
-	Overligg64: PNG(import("@frontend/assets/icons/Size=64, Icon=Overligg.png")),
-	PackagesPerHour64: PNG(import("@frontend/assets/icons/Size=64, Icon=PackagesPerHour.png")),
-	Package64: PNG(import("@frontend/assets/icons/Size=64, Icon=Package.png")),
-	Posten64: PNG(import("@frontend/assets/icons/Size=64, Icon=Posten.png")),
-	Productivity64: PNG(import("@frontend/assets/icons/Size=64, Icon=Productivity.png")),
-	Quality64: PNG(import("@frontend/assets/icons/Size=64, Icon=Quality.png")),
-	RightChevron64: PNG(import("@frontend/assets/icons/Size=64, Icon=RightChevron.png")),
-	Running64: PNG(import("@frontend/assets/icons/Size=64, Icon=Running.png")),
-	Service64: PNG(import("@frontend/assets/icons/Size=64, Icon=Service.png")),
-	Time64: PNG(import("@frontend/assets/icons/Size=64, Icon=Time.png")),
-	Trophy64: PNG(import("@frontend/assets/icons/Size=64, Icon=Trophy.png")),
-	Upload64: PNG(import("@frontend/assets/icons/Size=64, Icon=Upload.png")),
-	Van64: PNG(import("@frontend/assets/icons/Size=64, Icon=Van.png")),
-	VanFlipped64: PNG(import("@frontend/assets/icons/Size=64, Icon=VanFlipped.png")),
-	Warrior64: PNG(import("@frontend/assets/icons/Size=64, Icon=Warrior.png")),
-	Weight64: PNG(import("@frontend/assets/icons/Size=64, Icon=Weight.png")),
+	Home24: PNG(import("../assets/icons/Size=24, Icon=Home.png")),
+	Home32: PNG(import("../assets/icons/Size=32, Icon=Home.png")),
+	Home64: PNG(import("../assets/icons/Size=64, Icon=Home.png")),
+	Deviation16: PNG(import("../assets/icons/Size=16, Icon=Deviation.png")),
+	DriverPoints16: PNG(import("../assets/icons/Size=16, Icon=DriverPoints.png")),
+	Accuracy24: PNG(import("../assets/icons/Size=24, Icon=Accuracy.png")),
+	Driver24: PNG(import("../assets/icons/Size=24, Icon=Driver.png")),
+	PerDriver24: PNG(import("../assets/icons/Size=24, Icon=PerDriver.png")),
+	PerDay24: PNG(import("../assets/icons/Size=24, Icon=PerDay.png")),
+	PerDriverPerDay24: PNG(import("../assets/icons/Size=24, Icon=PerDriverPerDay.png")),
+	Bring24: PNG(import("../assets/icons/Size=24, Icon=Bring.png")),
+	Calendar24: PNG(import("../assets/icons/Size=24, Icon=Calendar.png")),
+	Checkmark24: PNG(import("../assets/icons/Size=24, Icon=Checkmark.png")),
+	Comment24: PNG(import("../assets/icons/Size=24, Icon=Comment.png")),
+	CubicMeter24: PNG(import("../assets/icons/Size=24, Icon=CubicMeter.png")),
+	Default24: PNG(import("../assets/icons/Size=24, Icon=Default.png")),
+	Delivery24: PNG(import("../assets/icons/Size=24, Icon=Delivery.png")),
+	Deviation24: PNG(import("../assets/icons/Size=24, Icon=Deviation.png")),
+	Dice24: PNG(import("../assets/icons/Size=24, Icon=Dice.png")),
+	DriverPoints24: PNG(import("../assets/icons/Size=24, Icon=DriverPoints.png")),
+	ExpectedPlace24: PNG(import("../assets/icons/Size=24, Icon=ExpectedPlace.png")),
+	FuriousDriver24: PNG(import("../assets/icons/Size=24, Icon=FuriousDriver.png")),
+	Ghost24: PNG(import("../assets/icons/Size=24, Icon=Ghost.png")),
+	GhostMansion24: PNG(import("../assets/icons/Size=24, Icon=GhostMansion.png")),
+	Globe24: PNG(import("../assets/icons/Size=24, Icon=Globe.png")),
+	HelpedOthers24: PNG(import("../assets/icons/Size=24, Icon=HelpedOthers.png")),
+	Innafor24: PNG(import("../assets/icons/Size=24, Icon=Innafor.png")),
+	King24: PNG(import("../assets/icons/Size=24, Icon=King.png")),
+	MissedTarget24: PNG(import("../assets/icons/Size=24, Icon=MissedTarget.png")),
+	MysteryPackage24: PNG(import("../assets/icons/Size=24, Icon=MysteryPackage.png")),
+	NPS24: PNG(import("../assets/icons/Size=24, Icon=NPS.png")),
+	NoDeliveryEvent24: PNG(import("../assets/icons/Size=24, Icon=NoDeliveryEvent.png")),
+	NoNotification24: PNG(import("../assets/icons/Size=24, Icon=NoNotification.png")),
+	Notification24: PNG(import("../assets/icons/Size=24, Icon=Notification.png")),
+	OutOfTime24: PNG(import("../assets/icons/Size=24, Icon=OutOfTime.png")),
+	Overligg24: PNG(import("../assets/icons/Size=24, Icon=Overligg.png")),
+	PackagesPerHour24: PNG(import("../assets/icons/Size=24, Icon=PackagesPerHour.png")),
+	Package16: PNG(import("../assets/icons/Size=16, Icon=Package.png")),
+	Package24: PNG(import("../assets/icons/Size=24, Icon=Package.png")),
+	Posten24: PNG(import("../assets/icons/Size=24, Icon=Posten.png")),
+	Productivity24: PNG(import("../assets/icons/Size=24, Icon=Productivity.png")),
+	Quality24: PNG(import("../assets/icons/Size=24, Icon=Quality.png")),
+	RightChevron24: PNG(import("../assets/icons/Size=24, Icon=RightChevron.png")),
+	Running24: PNG(import("../assets/icons/Size=24, Icon=Running.png")),
+	Service24: PNG(import("../assets/icons/Size=24, Icon=Service.png")),
+	Time24: PNG(import("../assets/icons/Size=24, Icon=Time.png")),
+	Trophy24: PNG(import("../assets/icons/Size=24, Icon=Trophy.png")),
+	Upload24: PNG(import("../assets/icons/Size=24, Icon=Upload.png")),
+	Van24: PNG(import("../assets/icons/Size=24, Icon=Van.png")),
+	VanFlipped24: PNG(import("../assets/icons/Size=24, Icon=VanFlipped.png")),
+	Warrior24: PNG(import("../assets/icons/Size=24, Icon=Warrior.png")),
+	Weight24: PNG(import("../assets/icons/Size=24, Icon=Weight.png")),
+	Accuracy32: PNG(import("../assets/icons/Size=32, Icon=Accuracy.png")),
+	Bring32: PNG(import("../assets/icons/Size=32, Icon=Bring.png")),
+	Calendar32: PNG(import("../assets/icons/Size=32, Icon=Calendar.png")),
+	Comment32: PNG(import("../assets/icons/Size=32, Icon=Comment.png")),
+	CubicMeter32: PNG(import("../assets/icons/Size=32, Icon=CubicMeter.png")),
+	Default32: PNG(import("../assets/icons/Size=32, Icon=Default.png")),
+	Delivery32: PNG(import("../assets/icons/Size=32, Icon=Delivery.png")),
+	Deviation32: PNG(import("../assets/icons/Size=32, Icon=Deviation.png")),
+	Dice32: PNG(import("../assets/icons/Size=32, Icon=Dice.png")),
+	DriverPoints32: PNG(import("../assets/icons/Size=32, Icon=DriverPoints.png")),
+	ExpectedPlace32: PNG(import("../assets/icons/Size=32, Icon=ExpectedPlace.png")),
+	FuriousDriver32: PNG(import("../assets/icons/Size=32, Icon=FuriousDriver.png")),
+	Ghost32: PNG(import("../assets/icons/Size=32, Icon=Ghost.png")),
+	GhostMansion32: PNG(import("../assets/icons/Size=32, Icon=GhostMansion.png")),
+	Globe32: PNG(import("../assets/icons/Size=32, Icon=Globe.png")),
+	HelpedOthers32: PNG(import("../assets/icons/Size=32, Icon=HelpedOthers.png")),
+	Innafor32: PNG(import("../assets/icons/Size=32, Icon=Innafor.png")),
+	King32: PNG(import("../assets/icons/Size=32, Icon=King.png")),
+	MissedTarget32: PNG(import("../assets/icons/Size=32, Icon=MissedTarget.png")),
+	MysteryPackage32: PNG(import("../assets/icons/Size=32, Icon=MysteryPackage.png")),
+	NPS32: PNG(import("../assets/icons/Size=32, Icon=NPS.png")),
+	NoDeliveryEvent32: PNG(import("../assets/icons/Size=32, Icon=NoDeliveryEvent.png")),
+	NoNotification32: PNG(import("../assets/icons/Size=32, Icon=NoNotification.png")),
+	Notification32: PNG(import("../assets/icons/Size=32, Icon=Notification.png")),
+	OutOfTime32: PNG(import("../assets/icons/Size=32, Icon=OutOfTime.png")),
+	Overligg32: PNG(import("../assets/icons/Size=32, Icon=Overligg.png")),
+	PackagesPerHour32: PNG(import("../assets/icons/Size=32, Icon=PackagesPerHour.png")),
+	Package32: PNG(import("../assets/icons/Size=32, Icon=Package.png")),
+	Posten32: PNG(import("../assets/icons/Size=32, Icon=Posten.png")),
+	Productivity32: PNG(import("../assets/icons/Size=32, Icon=Productivity.png")),
+	Quality32: PNG(import("../assets/icons/Size=32, Icon=Quality.png")),
+	RightChevron32: PNG(import("../assets/icons/Size=32, Icon=RightChevron.png")),
+	Running32: PNG(import("../assets/icons/Size=32, Icon=Running.png")),
+	Service32: PNG(import("../assets/icons/Size=32, Icon=Service.png")),
+	Time32: PNG(import("../assets/icons/Size=32, Icon=Time.png")),
+	Trophy32: PNG(import("../assets/icons/Size=32, Icon=Trophy.png")),
+	Upload32: PNG(import("../assets/icons/Size=32, Icon=Upload.png")),
+	Van32: PNG(import("../assets/icons/Size=32, Icon=Van.png")),
+	VanFlipped32: PNG(import("../assets/icons/Size=32, Icon=VanFlipped.png")),
+	Warrior32: PNG(import("../assets/icons/Size=32, Icon=Warrior.png")),
+	Weight32: PNG(import("../assets/icons/Size=32, Icon=Weight.png")),
+	Accuracy64: PNG(import("../assets/icons/Size=64, Icon=Accuracy.png")),
+	Bring64: PNG(import("../assets/icons/Size=64, Icon=Bring.png")),
+	Calendar64: PNG(import("../assets/icons/Size=64, Icon=Calendar.png")),
+	Comment64: PNG(import("../assets/icons/Size=64, Icon=Comment.png")),
+	CubicMeter64: PNG(import("../assets/icons/Size=64, Icon=CubicMeter.png")),
+	Default64: PNG(import("../assets/icons/Size=64, Icon=Default.png")),
+	Delivery64: PNG(import("../assets/icons/Size=64, Icon=Delivery.png")),
+	Deviation64: PNG(import("../assets/icons/Size=64, Icon=Deviation.png")),
+	Dice64: PNG(import("../assets/icons/Size=64, Icon=Dice.png")),
+	DriverPoints64: PNG(import("../assets/icons/Size=64, Icon=DriverPoints.png")),
+	ExpectedPlace64: PNG(import("../assets/icons/Size=64, Icon=ExpectedPlace.png")),
+	FuriousDriver64: PNG(import("../assets/icons/Size=64, Icon=FuriousDriver.png")),
+	Ghost64: PNG(import("../assets/icons/Size=64, Icon=Ghost.png")),
+	GhostMansion64: PNG(import("../assets/icons/Size=64, Icon=GhostMansion.png")),
+	Globe64: PNG(import("../assets/icons/Size=64, Icon=Globe.png")),
+	HelpedOthers64: PNG(import("../assets/icons/Size=64, Icon=HelpedOthers.png")),
+	Innafor64: PNG(import("../assets/icons/Size=64, Icon=Innafor.png")),
+	King64: PNG(import("../assets/icons/Size=64, Icon=King.png")),
+	MissedTarget64: PNG(import("../assets/icons/Size=64, Icon=MissedTarget.png")),
+	MysteryPackage64: PNG(import("../assets/icons/Size=64, Icon=MysteryPackage.png")),
+	NPS64: PNG(import("../assets/icons/Size=64, Icon=NPS.png")),
+	NoDeliveryEvent64: PNG(import("../assets/icons/Size=64, Icon=NoDeliveryEvent.png")),
+	NoNotification64: PNG(import("../assets/icons/Size=64, Icon=NoNotification.png")),
+	Notification64: PNG(import("../assets/icons/Size=64, Icon=Notification.png")),
+	OutOfTime64: PNG(import("../assets/icons/Size=64, Icon=OutOfTime.png")),
+	Overligg64: PNG(import("../assets/icons/Size=64, Icon=Overligg.png")),
+	PackagesPerHour64: PNG(import("../assets/icons/Size=64, Icon=PackagesPerHour.png")),
+	Package64: PNG(import("../assets/icons/Size=64, Icon=Package.png")),
+	Posten64: PNG(import("../assets/icons/Size=64, Icon=Posten.png")),
+	Productivity64: PNG(import("../assets/icons/Size=64, Icon=Productivity.png")),
+	Quality64: PNG(import("../assets/icons/Size=64, Icon=Quality.png")),
+	RightChevron64: PNG(import("../assets/icons/Size=64, Icon=RightChevron.png")),
+	Running64: PNG(import("../assets/icons/Size=64, Icon=Running.png")),
+	Service64: PNG(import("../assets/icons/Size=64, Icon=Service.png")),
+	Time64: PNG(import("../assets/icons/Size=64, Icon=Time.png")),
+	Trophy64: PNG(import("../assets/icons/Size=64, Icon=Trophy.png")),
+	Upload64: PNG(import("../assets/icons/Size=64, Icon=Upload.png")),
+	Van64: PNG(import("../assets/icons/Size=64, Icon=Van.png")),
+	VanFlipped64: PNG(import("../assets/icons/Size=64, Icon=VanFlipped.png")),
+	Warrior64: PNG(import("../assets/icons/Size=64, Icon=Warrior.png")),
+	Weight64: PNG(import("../assets/icons/Size=64, Icon=Weight.png")),
 
-	Conduct64: PNG(import("@frontend/assets/icons/Size=64, Icon=Conduct.png")),
-	Conduct32: PNG(import("@frontend/assets/icons/Size=32, Icon=Conduct.png")),
-	Conduct24: PNG(import("@frontend/assets/icons/Size=24, Icon=Conduct.png")),
+	Conduct64: PNG(import("../assets/icons/Size=64, Icon=Conduct.png")),
+	Conduct32: PNG(import("../assets/icons/Size=32, Icon=Conduct.png")),
+	Conduct24: PNG(import("../assets/icons/Size=24, Icon=Conduct.png")),
 
-	FirstPlace64: PNG(import("@frontend/assets/icons/Size=64, Icon=1Gold.png")),
-	SecondPlace64: PNG(import("@frontend/assets/icons/Size=64, Icon=2Silver.png")),
-	ThirdPlace64: PNG(import("@frontend/assets/icons/Size=64, Icon=3Bronze.png")),
+	FirstPlace64: PNG(import("../assets/icons/Size=64, Icon=1Gold.png")),
+	SecondPlace64: PNG(import("../assets/icons/Size=64, Icon=2Silver.png")),
+	ThirdPlace64: PNG(import("../assets/icons/Size=64, Icon=3Bronze.png")),
 
-	ThumbsUp24: PNG(import("@frontend/assets/icons/Size=24, Icon=ThumbsUp.png")),
-	ThumbsDown24: PNG(import("@frontend/assets/icons/Size=24, Icon=ThumbsDown.png")),
+	ThumbsUp24: PNG(import("../assets/icons/Size=24, Icon=ThumbsUp.png")),
+	ThumbsDown24: PNG(import("../assets/icons/Size=24, Icon=ThumbsDown.png")),
 }
 
 export class BaseTheme {
 	fonts = SetupFontFace({
-		heading: import("@frontend/assets/fonts/ChangaOne-Regular.ttf"),
-		"body-weak": import("@frontend/assets/fonts/PostenSans-Light.ttf"),
-		body: import("@frontend/assets/fonts/PostenSans-Regular.ttf"),
-		"body-medium": import("@frontend/assets/fonts/PostenSans-Bold.ttf"),
-		"body-strong": import("@frontend/assets/fonts/PostenSans-Bold.ttf"),
-		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
+		heading: import("../assets/fonts/ChangaOne-Regular.ttf"),
+		"body-weak": import("../assets/fonts/PostenSans-Light.ttf"),
+		body: import("../assets/fonts/PostenSans-Regular.ttf"),
+		"body-medium": import("../assets/fonts/PostenSans-Bold.ttf"),
+		"body-strong": import("../assets/fonts/PostenSans-Bold.ttf"),
+		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
 	textSizes = {
 		XS: 12,
@@ -567,8 +496,38 @@ export class BaseTheme {
 	underlineOffset = 4
 	underlineThickness = 1
 
-	shadow = shadow
-	shadowFooter = shadowFooter
+	shadow = BuildShadow([
+		{
+			x: 2,
+			y: 2,
+			blur: 1,
+			radius: 1,
+			color: color_util.ModifyAlpha(colors.black, 0.1),
+		},
+		{
+			x: 2,
+			y: 2,
+			blur: 10,
+			radius: 5,
+			color: color_util.ModifyAlpha(colors.darker, 0.05),
+		},
+	])
+	shadowFooter = BuildShadow([
+		{
+			x: 2,
+			y: -2,
+			blur: 1,
+			radius: 1,
+			color: color_util.ModifyAlpha(colors.black, 0.1),
+		},
+		{
+			x: 2,
+			y: -2,
+			blur: 10,
+			radius: 5,
+			color: color_util.ModifyAlpha(colors.darker, 0.05),
+		},
+	])
 	backgroundStyle = { backgroundImage: "url(" + SVGBackground + ")" }
 	boxStyle = {
 		Contents: (props: { children?: ReactNode; borderSize?: BorderSizes; color?: ThemeColor; shadow?: boolean; style?: CSSProperties; emphasis?: number; borderWidth?: number }) => {

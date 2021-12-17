@@ -1,12 +1,13 @@
 import { URL } from "@frontend/gui/components/interactive/url"
 import { Showcase } from "@frontend/gui/showcase"
-import { InjectCSS } from "@frontend/other/css"
-import { Hash, pairs } from "@frontend/other/other"
-import { useMediaQuery } from "@frontend/other/react"
+import { InjectCSS } from "@vero/util/css"
+import { Hash, pairs } from "@vero/util/other"
+import { useMediaQuery } from "@vero/util/react-hooks"
 import React, { CSSProperties, ReactNode, useState } from "react"
 import { Column, Row } from "./components/layout/row-column"
-import { getContrastedColor, TextSizes, ThemeColor, useTheme } from "./theme"
-import { Icon } from "./themes/base"
+import { useTheme } from "@vero/gui-theme"
+import { TextSizes, ThemeColor, Icon } from "@vero/gui-theme"
+import { getContrastedColor } from "@vero/gui-theme/src/util"
 import { FormatNumber, FormatTime } from "./translation"
 
 export const TextArea = (
@@ -175,32 +176,6 @@ const useScaler = (size: string, widths: number[], minimum: string) => {
 	}
 
 	return size
-}
-
-export function SetupFontFace(fonts: {
-	[key in "body" | "body-strong" | "body-weak" | "body-medium" | "heading" | "monospace"]: Promise<any>
-}) {
-	const output = {} as { [key in keyof typeof fonts]: string }
-
-	for (const [name, font] of pairs(fonts)) {
-		;(async () => {
-			const url = (await font).default
-			const uniqueId = "font_" + Hash(name + url)
-
-			output[name] = uniqueId
-
-			InjectCSS(`
-					@font-face {
-						font-family: '${uniqueId}';
-						src: local('☺'), url(${url}) format('truetype');
-					}
-				`)
-		})()
-	}
-
-	console.log(output)
-
-	return output
 }
 
 const TextContext = React.createContext<ReactNode>(null)

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { register } from "@frontend/serviceWorkerRegistration"
+//import { register } from "@frontend/serviceWorkerRegistration"
 
 export const AppUpdater = () => {
 	const [showReload, setShowReload] = useState(false)
@@ -7,12 +7,12 @@ export const AppUpdater = () => {
 	const [formRef, setFormRef] = useState<HTMLFormElement | null>(null)
 
 	useEffect(() => {
-		register({
+		/*	register({
 			onUpdate: (registration) => {
 				setShowReload(true)
 				setWaitingWorker(registration.waiting)
 			},
-		})
+		})*/
 	}, [])
 
 	if (!showReload) {

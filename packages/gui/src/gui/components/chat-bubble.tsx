@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 
 export const ChatBubble = (props: { children: ReactNode; hide?: boolean; notail?: boolean; tailLeft?: boolean }) => {
 	const theme = useTheme()

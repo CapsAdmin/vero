@@ -1,7 +1,7 @@
-import SVGBackground from "assets//images/ff7.jpg"
-import { BuildShadow, useTheme } from "@frontend/gui/theme"
-import { SetupFontFace, Text } from "@frontend/gui/typography"
-import { color_util } from "@frontend/other/colors"
+import SVGBackground from "../assets/images/ff7.jpg"
+import { useTheme } from "../"
+import { BuildShadow, SetupFontFace } from "../util"
+import { color_util } from "@vero/util/colors"
 import React, { CSSProperties, ReactNode } from "react"
 import { BaseTheme } from "./base"
 
@@ -238,58 +238,56 @@ const colors = color_util.BuildPallete(["hsl(220, 0%, 80%)", "hsl(220, 3%, 20%)"
 	brown: "#a17247",
 })
 
-const shadow = BuildShadow([
-	{
-		x: 0,
-		y: 0,
-		blur: 4,
-		intensity: 2,
-		color: color_util.ModifyAlpha(colors.black, 0.1),
-	},
-	{
-		x: 3,
-		y: 3,
-		blur: 8,
-		radius: 5,
-		color: color_util.ModifyAlpha(colors.darker, 0.1),
-	},
-])
-
-const shadowFooter = BuildShadow([
-	{
-		x: 0,
-		y: 0,
-		blur: 4,
-		intensity: 2,
-		color: color_util.ModifyAlpha(colors.black, 0.1),
-	},
-	{
-		x: 3,
-		y: -3,
-		blur: 8,
-		radius: 5,
-		color: color_util.ModifyAlpha(colors.darker, 0.1),
-	},
-])
-
 export class JRPGTheme extends BaseTheme {
-	shadow = shadow
-	shadowFooter = shadowFooter
-	lineHeight = 5
+	override shadow = BuildShadow([
+		{
+			x: 0,
+			y: 0,
+			blur: 4,
+			intensity: 2,
+			color: color_util.ModifyAlpha(colors.black, 0.1),
+		},
+		{
+			x: 3,
+			y: 3,
+			blur: 8,
+			radius: 5,
+			color: color_util.ModifyAlpha(colors.darker, 0.1),
+		},
+	])
+
+	override shadowFooter = BuildShadow([
+		{
+			x: 0,
+			y: 0,
+			blur: 4,
+			intensity: 2,
+			color: color_util.ModifyAlpha(colors.black, 0.1),
+		},
+		{
+			x: 3,
+			y: -3,
+			blur: 8,
+			radius: 5,
+			color: color_util.ModifyAlpha(colors.darker, 0.1),
+		},
+	])
+
+	override lineHeight = 5
 
 	backgroundImage = "url(" + SVGBackground + ")"
-	backgroundStyle = {
+	override backgroundStyle = {
 		backgroundImage: "url(" + SVGBackground + ")",
 		backgroundPositionX: "50%",
 		filter: "blur(5px)",
 	} as BaseTheme["backgroundStyle"]
 
-	strokeWidth = sizes.line
-	iconStyle = {
+	override strokeWidth = sizes.line
+	override iconStyle = {
 		filter: "drop-shadow(1.5px 1.5px 1px rgba(0,0,0,0.5))",
 	}
-	strokeWidthThick = sizes.line * 2
-	sizes = {
+	override strokeWidthThick = sizes.line * 2
+	override sizes = {
 		default: sizes.M,
 		IconTiny: 16,
 		IconSmall: 24,
@@ -297,7 +295,7 @@ export class JRPGTheme extends BaseTheme {
 		IconLarge: 64,
 		...sizes,
 	}
-	borderSizes = {
+	override borderSizes = {
 		none: 0,
 		default: 1,
 		small: 1,
@@ -305,7 +303,7 @@ export class JRPGTheme extends BaseTheme {
 		circle: "50%",
 	}
 
-	boxStyle = {
+	override boxStyle = {
 		Contents: (props: { children?: ReactNode; style?: CSSProperties; emphasis?: number; borderWidth?: number }) => {
 			return (
 				<Frame borderWidth={props.borderWidth} emphasis={props.emphasis === undefined ? 1 : props.emphasis} style={props.style}>
@@ -314,7 +312,7 @@ export class JRPGTheme extends BaseTheme {
 			)
 		},
 	}
-	buttonStyle = {
+	override buttonStyle = {
 		zDistance: 1,
 		Contents: (props: { children?: ReactNode }) => {
 			const theme = useTheme()
@@ -329,7 +327,7 @@ export class JRPGTheme extends BaseTheme {
 						<Line absolute width={2} leftFade={0} emphasis={0.25} horizontal style={{ width: "100%", top: 1, left: 1 }}></Line>
 						<Line absolute width={2} fade={0} emphasis={0.75} style={{ height: "100%", top: 0, left: 1 }}></Line>
 
-						<Text>{props.children}</Text>
+						{props.children}
 
 						<Line absolute width={2} leftFade={0} emphasis={0.25} horizontal style={{ width: "100%", bottom: -1, left: 1 }}></Line>
 					</div>
@@ -338,10 +336,10 @@ export class JRPGTheme extends BaseTheme {
 		},
 	} as BaseTheme["buttonStyle"]
 
-	lineStyle = {
+	override lineStyle = {
 		Render: Line,
 	}
-	textSizes = {
+	override textSizes = {
 		XS: 14,
 		S: 16,
 		M: 20,
@@ -351,18 +349,18 @@ export class JRPGTheme extends BaseTheme {
 		XXXL: 42,
 	}
 
-	fonts = SetupFontFace({
-		heading: import("@frontend/assets/fonts/exo2-regular.ttf"),
-		"body-weak": import("@frontend/assets/fonts/exo2-light.ttf"),
-		body: import("@frontend/assets/fonts/exo2-regular.ttf"),
-		"body-medium": import("@frontend/assets/fonts/exo2-regular.ttf"),
-		"body-strong": import("@frontend/assets/fonts/exo2-regular.ttf"),
-		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
+	override fonts = SetupFontFace({
+		heading: import("../assets/fonts/exo2-regular.ttf"),
+		"body-weak": import("../assets/fonts/exo2-light.ttf"),
+		body: import("../assets/fonts/exo2-regular.ttf"),
+		"body-medium": import("../assets/fonts/exo2-regular.ttf"),
+		"body-strong": import("../assets/fonts/exo2-regular.ttf"),
+		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
-	fontStyle = {
+	override fontStyle = {
 		textShadow: "0.05em 0.05em 1px rgba(0,0,0,0.5)",
 	}
-	colors = {
+	override colors = {
 		primary: colors.blue,
 		secondary: colors.green,
 		positive: colors["green-lighter"],

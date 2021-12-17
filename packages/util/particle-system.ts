@@ -1,4 +1,4 @@
-import { Clamp } from "@frontend/other/other"
+import { Clamp } from "./other"
 import { getCanvasOverlay, onPreRender, onRender } from "./render-loop"
 
 const gfx = getCanvasOverlay()!

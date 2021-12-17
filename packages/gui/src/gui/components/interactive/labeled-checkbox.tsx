@@ -1,7 +1,6 @@
 import { Row } from "@frontend/gui/components/layout/row-column"
 import { Showcase } from "@frontend/gui/showcase"
-import { ThemeColor, useTheme } from "@frontend/gui/theme"
-import { Icon } from "@frontend/gui/themes/base"
+import { ThemeColor, useTheme, Icon } from "@vero/gui-theme"
 import { Text } from "@frontend/gui/typography"
 import React, { ReactNode, useState } from "react"
 import { Clickable } from "./clickable"

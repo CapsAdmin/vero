@@ -1,6 +1,6 @@
 import { api, UserData } from "@frontend/api/api"
-import { Setting } from "@frontend/app/settings"
-import { Observer } from "@frontend/other/observer"
+import { Setting } from "@vero/util/settings"
+import { Observer } from "@vero/util/observer"
 
 export const userDataState = new Observer({} as UserData)
 export const workDaysState = new Observer({ fromDate: new Date(0), toDate: new Date(), totalDriverPoints: 0 })

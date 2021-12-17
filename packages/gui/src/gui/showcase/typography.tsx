@@ -4,7 +4,7 @@ import { Showcase } from "@frontend/gui/showcase"
 import { Text } from "@frontend/gui/typography"
 import React, { ReactNode } from "react"
 import { URL } from "../components/interactive/url"
-import { ThemeColor, useContrastedColor } from "../theme"
+import { ThemeColor, useContrastedColor } from "@vero/gui-theme"
 export const H1 = (props: { children?: ReactNode; color?: ThemeColor }) => {
 	return (
 		<Row>

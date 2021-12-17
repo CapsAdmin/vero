@@ -1,6 +1,7 @@
 import { DarkTheme } from "./dark"
 import { LightTheme } from "./light"
-import { IsDarkThemePrefered } from '../../other/browser';
+
+export const IsDarkThemePrefered = window.matchMedia("(prefers-color-scheme: dark)").matches
 
 let Theme
 

@@ -1,7 +1,5 @@
-import { ShowError } from "@frontend/gui/error-listener"
-import React, { ReactNode, useEffect, useState } from "react"
-import { location } from "./location"
-import { PRODUCTION, TESTING } from "./other"
+import { useEffect, useState } from "react"
+import { TESTING } from "./other"
 
 export const useMediaQuery = (query: string) => {
 	if (TESTING) {

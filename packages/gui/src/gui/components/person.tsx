@@ -1,6 +1,6 @@
 import { CRC32 } from "@frontend/app/thirdparty"
 import React from "react"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 import { InjectCSS } from "../../other/css"
 import { LazyLoad } from "./lazy-load"
 import { Avatar } from "@frontend/app/thirdparty"

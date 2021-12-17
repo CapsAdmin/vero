@@ -1,5 +1,5 @@
 import React from "react"
-import { ThemeSizes, useTheme } from "@frontend/gui/theme"
+import { ThemeSizes, useTheme } from "@vero/gui-theme"
 
 export const Gutter = (props: { size: ThemeSizes; decrease?: boolean; multiplier?: number }) => {
 	const theme = useTheme()

@@ -1,5 +1,5 @@
-import { Observer } from "@frontend/other/observer"
-import { storageGetItem, storageSetItem } from "@frontend/other/storage"
+import { Observer } from "./observer"
+import { storageGetItem, storageSetItem } from "./storage"
 
 export const Setting = <T>(key: string, initialValue: T) => {
 	let blob = storageGetItem("settings-" + key)

@@ -1,5 +1,5 @@
-import { chroma } from "@frontend/app/thirdparty"
 import { Lerp, pairs } from "./other"
+import chroma from "chroma-js"
 
 const primaryColors = ["red", "green", "blue"]
 

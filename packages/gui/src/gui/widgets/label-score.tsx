@@ -1,9 +1,8 @@
 import { Column, Row } from "@frontend/gui/components/layout/row-column"
-import { ThemeColor, ThemeIcon } from "@frontend/gui/theme"
+import { ThemeColor, ThemeIcon, Icon } from "@vero/gui-theme"
 import React, { ReactNode } from "react"
 import { Clickable } from "../components/interactive/clickable"
 import { ShowModal } from "../components/modal-layer"
-import { Icon } from "../themes/base"
 import { FormatNumber } from "../translation"
 import { Text } from "../typography"
 export const LabelScore = (props: {

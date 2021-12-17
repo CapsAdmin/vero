@@ -1,5 +1,5 @@
-import { CRC32 } from "@frontend/app/thirdparty"
 import { CSSProperties } from "react"
+const CRC32 = require("crc-32")
 
 const done = new Set<string>()
 

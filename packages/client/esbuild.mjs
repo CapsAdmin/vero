@@ -16,7 +16,7 @@ esbuild
 		entryPoints: ["src/index.tsx"],
 		outfile: "public/bundle.js",
 		bundle: true,
-		minify: true,
+		minify: false,
 		sourcemap: "both",
 		define: {
 			"process.env.NODE_ENV": '"development"',

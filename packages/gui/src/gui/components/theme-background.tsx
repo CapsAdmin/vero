@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 import { Background } from "./background"
 
 export const ThemeBackground = (props: { style?: CSSProperties }) => {

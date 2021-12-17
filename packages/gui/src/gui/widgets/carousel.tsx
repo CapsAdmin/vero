@@ -1,8 +1,8 @@
-import { InjectCSS } from "@frontend/other/css"
+import { InjectCSS } from "@vero/util/css"
 import React, { ReactNode } from "react"
 import { Carousel as ReactResponsiveCarousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 
 // turn off overflow so that when we use the carousel on mobile it ignores margins
 InjectCSS(`

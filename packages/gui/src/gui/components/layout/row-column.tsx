@@ -1,4 +1,4 @@
-import { ThemeSizes, useTheme } from "@frontend/gui/theme"
+import { ThemeSizes, useTheme } from "@vero/gui-theme"
 import React, { CSSProperties, ReactNode, useMemo } from "react"
 
 type BaseAlign = "center" | "start" | "end" | "baseline"
@@ -188,7 +188,9 @@ export const Column = (props: {
 export const PageColumn = (props: { children?: ReactNode }) => <Column itemPadding="XL">{props.children}</Column>
 export const ContentColumn = (props: { children?: ReactNode }) => {
 	return (
-		<article><Column itemPadding="M">{props.children}</Column></article>
+		<article>
+			<Column itemPadding="M">{props.children}</Column>
+		</article>
 	)
 }
 export const ItemColumn = (props: { children?: ReactNode }) => <Column itemPadding="S">{props.children}</Column>

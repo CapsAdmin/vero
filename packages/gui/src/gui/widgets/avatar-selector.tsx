@@ -4,7 +4,7 @@ import { Box } from "../components/box"
 import { Clickable } from "../components/interactive/clickable"
 import { Column, Row } from "../components/layout/row-column"
 import { CardHeader } from "@frontend/gui/widgets/card-header"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 import { avatar, AvatarData, Part } from "./avatar"
 
 type ExtractPartTypes<T extends string> = T extends `${infer Category}.${string}` ? Category : never

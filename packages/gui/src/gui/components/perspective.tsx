@@ -1,6 +1,6 @@
 import anime from "animejs"
-import { onRender } from "@frontend/other/render-loop"
-import { Clamp } from "@frontend/other/other"
+import { onRender } from "@vero/util/render-loop"
+import { Clamp } from "@vero/util/other"
 
 const noise = () => Math.random() * 2 - 1
 

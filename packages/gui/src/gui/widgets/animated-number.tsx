@@ -1,6 +1,6 @@
-import { onRender, removeOnRender } from "@frontend/other/render-loop"
+import { onRender, removeOnRender } from "@vero/util/render-loop"
 import { useEffect, useState } from "react"
-import { Clamp, Lerp } from "../../other/other"
+import { Clamp, Lerp } from "@vero/util/other"
 
 export const AnimatedNumber = (props: { number: number; renderResults: (value: number, progress: number) => JSX.Element; duration: number }) => {
 	const [progress, setProgress] = useState(0)

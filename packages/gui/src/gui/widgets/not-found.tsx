@@ -3,7 +3,7 @@ import { CollapsibleCard } from "@frontend/gui/components/interactive/collapsibl
 import { Column, Row } from "@frontend/gui/components/layout/row-column"
 import React, { ReactNode } from "react"
 import { Text } from "@frontend/gui/typography"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 import { Icon } from "../themes/base"
 
 export const NotFoundCard = (props: { title?: ReactNode; reason?: ReactNode; children?: ReactNode }) => {

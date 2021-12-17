@@ -1,8 +1,9 @@
-import { BuildShadow, ThemeColor, useTheme } from "@frontend/gui/theme"
-import { color_util } from "@frontend/other/colors"
+import { BuildShadow } from "../util"
+import { color_util } from "@vero/util/colors"
 import React, { CSSProperties, ReactNode } from "react"
-import { SetupFontFace } from "../typography"
+import { SetupFontFace } from "../util"
 import { BaseTheme } from "./base"
+import { useTheme, ThemeColor } from ".."
 
 const sizes = {
 	none: 0,
@@ -60,9 +61,9 @@ const shadowFooter = BuildShadow([
 ])
 
 export class Posten1Theme extends BaseTheme {
-	muteSounds = true
-	lineHeight = 15
-	buttonStyle = {
+	override muteSounds = true
+	override lineHeight = 15
+	override buttonStyle = {
 		noLight: true,
 		hoverBrightness: 1,
 		pressBrightness: 1,
@@ -90,15 +91,15 @@ export class Posten1Theme extends BaseTheme {
 			)
 		},
 	}
-	fonts = SetupFontFace({
-		heading: import("@frontend/assets/fonts/FoundryMonolinePN-Bold.ttf"),
-		"body-weak": import("@frontend/assets/fonts/FoundryMonolinePN-Regular.ttf"),
-		body: import("@frontend/assets/fonts/FoundryMonolinePN-Medium.ttf"),
-		"body-medium": import("@frontend/assets/fonts/FoundryMonolinePN-Medium.ttf"),
-		"body-strong": import("@frontend/assets/fonts/FoundryMonolinePN-Bold.ttf"),
-		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
+	override fonts = SetupFontFace({
+		heading: import("../assets/fonts/FoundryMonolinePN-Bold.ttf"),
+		"body-weak": import("../assets/fonts/FoundryMonolinePN-Regular.ttf"),
+		body: import("../assets/fonts/FoundryMonolinePN-Medium.ttf"),
+		"body-medium": import("../assets/fonts/FoundryMonolinePN-Medium.ttf"),
+		"body-strong": import("../assets/fonts/FoundryMonolinePN-Bold.ttf"),
+		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
-	textSizes = {
+	override textSizes = {
 		XS: 15,
 		S: 16,
 		M: 18,
@@ -107,14 +108,14 @@ export class Posten1Theme extends BaseTheme {
 		XXL: 36,
 		XXXL: 40,
 	}
-	strokeWidth = sizes.line * 2
-	strokeWidthThick = sizes.line * 3
-	underlineOffset = "0.25em" as unknown as number
-	underlineThickness = 1
-	shadow = shadow
-	shadowFooter = shadowFooter
-	backgroundStyle = { backgroundImage: " " }
-	sizes = {
+	override strokeWidth = sizes.line * 2
+	override strokeWidthThick = sizes.line * 3
+	override underlineOffset = "0.25em" as unknown as number
+	override underlineThickness = 1
+	override shadow = shadow
+	override shadowFooter = shadowFooter
+	override backgroundStyle = { backgroundImage: " " }
+	override sizes = {
 		default: sizes.M,
 		IconTiny: 16,
 		IconSmall: 24,
@@ -122,14 +123,14 @@ export class Posten1Theme extends BaseTheme {
 		IconLarge: 64,
 		...sizes,
 	}
-	borderSizes = {
+	override borderSizes = {
 		none: 0,
 		default: sizes.XXS,
 		small: sizes.XXS,
 		big: sizes.S,
 		circle: "50%",
 	}
-	colors = {
+	override colors = {
 		primary: colors.red,
 		secondary: colors.green,
 		positive: colors["green-lighter"],

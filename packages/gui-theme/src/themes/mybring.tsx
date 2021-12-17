@@ -1,4 +1,4 @@
-import { color_util } from "@frontend/other/colors"
+import { color_util } from "@vero/util/colors"
 import { Posten2Theme } from "./posten2"
 
 const colors = color_util.BuildPallete(["#FFFFFF", "#F1F7E9", "#C8DC8C", "#7BC144", "#00643A", "#002F19"], {
@@ -11,7 +11,7 @@ const colors = color_util.BuildPallete(["#FFFFFF", "#F1F7E9", "#C8DC8C", "#7BC14
 })
 
 export class MyBringTheme extends Posten2Theme {
-	colors = {
+	override colors = {
 		primary: colors.green,
 		secondary: colors.green,
 

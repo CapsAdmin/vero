@@ -4,11 +4,12 @@ import { DropDown } from "@frontend/gui/components/interactive/drop-down"
 import { Page } from "@frontend/gui/components/layout/page"
 import { Column, Row } from "@frontend/gui/components/layout/row-column"
 import { GetShowcases, ShowcaseType } from "@frontend/gui/showcase"
-import { GetAvailableThemeNames, themeNameSetting, useTheme } from "@frontend/gui/theme"
+import { GetAvailableThemeNames, useTheme } from "@vero/gui-theme"
 import { Text } from "@frontend/gui/typography"
-import { location } from "@frontend/other/location"
-import { pages } from "@frontend/other/pages"
+import { location } from "@vero/util/location"
+import { pages } from "@vero/util/pages"
 import React, { useState } from "react"
+import { themeNameSetting } from "../theme"
 
 const ThemeHeader = () => {
 	const theme = useTheme()

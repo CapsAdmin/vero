@@ -1,7 +1,6 @@
 import React, { CSSProperties } from "react"
-import { ThemeColor, useTheme } from "@frontend/gui/theme"
+import { ThemeColor, useTheme, Icon } from "@vero/gui-theme"
 import { Clickable } from "./clickable"
-import { Icon } from "@frontend/gui/themes/base"
 
 export const Checkbox = (props: { onClick?: (checked: boolean) => void; checked: boolean; weak?: boolean; style?: CSSProperties; checkColor?: ThemeColor; description?: string }) => {
 	const theme = useTheme()

@@ -1,6 +1,6 @@
 import { Column } from "@frontend/gui/components/layout/row-column"
 import React from "react"
-import { useTheme, ThemeColor } from "../theme"
+import { useTheme, ThemeColor } from "@vero/gui-theme"
 import { Text } from "../typography"
 import { chroma } from "@frontend/app/thirdparty"
 

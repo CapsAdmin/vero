@@ -1,6 +1,6 @@
 import moment from "moment"
 import React from "react"
-import { ThemeColor, useTheme } from "../theme"
+import { ThemeColor, useTheme } from "@vero/gui-theme"
 import { FormatNumber } from "../translation"
 import { Grid } from "./grid"
 import { Row } from "./layout/row-column"

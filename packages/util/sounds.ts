@@ -1,4 +1,4 @@
-import { RandomSeed } from "@frontend/other/other"
+import { RandomSeed } from "./other"
 
 const mute = false
 const NOVOLUME = 0.0001

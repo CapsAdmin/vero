@@ -1,18 +1,20 @@
-import { Setting } from "@frontend/app/settings"
-import { autosize, HumanizeDuration } from "@frontend/app/thirdparty"
+import { Setting } from "@vero/util/settings"
 import { Button } from "@frontend/gui/components/interactive/button"
 import { Column, Row } from "@frontend/gui/components/layout/row-column"
-import { useTheme } from "@frontend/gui/theme"
+import { useTheme } from "@vero/gui-theme"
 import { Text } from "@frontend/gui/typography"
 import English from "@frontend/languages/en.json"
 import Norwegian from "@frontend/languages/no.json"
-import { Observer } from "@frontend/other/observer"
-import { CopyToClipboard } from "@frontend/other/other"
-import { storageGetItem, storageSetItem } from "@frontend/other/storage"
+import { Observer } from "@vero/util/observer"
+import { CopyToClipboard } from "@vero/util/other"
+import { storageGetItem, storageSetItem } from "@vero/util/storage"
 import moment from "moment"
 import "moment/locale/nb"
 import React, { ReactNode, useState } from "react"
 import { Showcase } from "./showcase"
+
+export const autosize = require("autosize")
+export const HumanizeDuration = require("humanize-duration")
 
 export const languageSetting = Setting<"en" | "no" | "auto">("language", "auto")
 

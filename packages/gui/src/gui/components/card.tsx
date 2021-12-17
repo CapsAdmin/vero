@@ -1,6 +1,6 @@
-import { useMediaQuery } from "@frontend/other/react"
+import { useMediaQuery } from "@vero/util/react-hooks"
 import React, { CSSProperties, ReactNode } from "react"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 import { Box } from "./box"
 import { Column } from "./layout/row-column"
 

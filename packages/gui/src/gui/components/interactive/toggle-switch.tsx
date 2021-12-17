@@ -1,6 +1,6 @@
 import { Column } from "@frontend/gui/components/layout/row-column"
 import { Showcase } from "@frontend/gui/showcase"
-import { useTheme } from "@frontend/gui/theme"
+import { useTheme } from "@vero/gui-theme"
 import anime from "animejs"
 import { useRef, useState } from "react"
 import { Clickable } from "./clickable"

@@ -1,5 +1,5 @@
 import React from "react"
-import { Icon } from "../themes/base"
+import { Icon } from "@vero/gui-theme"
 import { Text } from "../typography"
 import { Row } from "./layout/row-column"
 

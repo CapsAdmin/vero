@@ -1,8 +1,7 @@
 import { Box } from "@frontend/gui/components/box"
 import { URL } from "@frontend/gui/components/interactive/url"
 import { Column, Row } from "@frontend/gui/components/layout/row-column"
-import { ThemeIcon, useContrastedColor } from "@frontend/gui/theme"
-import { Icon } from "@frontend/gui/themes/base"
+import { ThemeIcon, useContrastedColor, Icon } from "@vero/gui-theme"
 import React from "react"
 import { H3 } from "../showcase/typography"
 export const CardHeader = (props: { title: string; icon?: ThemeIcon; url?: string }) => {

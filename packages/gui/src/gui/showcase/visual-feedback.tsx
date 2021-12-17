@@ -14,9 +14,9 @@ import { ScreenShake } from "@frontend/gui/components/perspective"
 import { Showcase } from "@frontend/gui/showcase"
 import { Text } from "@frontend/gui/typography"
 import { ConfirmModal } from "@frontend/gui/widgets/confirm"
-import { Rumble } from "@frontend/other/sounds"
+import { Rumble } from "@vero/util/sounds"
 import React, { useRef, useState } from "react"
-import { Icon } from "../themes/base"
+import { Icon } from "@vero/gui-theme"
 
 const starImage = document.createElement("img")
 starImage.src = Star

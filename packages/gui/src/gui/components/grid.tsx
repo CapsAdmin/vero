@@ -1,7 +1,7 @@
 import { Row } from "@frontend/gui/components/layout/row-column"
 import { Text } from "@frontend/gui/typography"
 import React, { ReactNode, useEffect, useRef, useState } from "react"
-import { useTheme } from "../theme"
+import { useTheme } from "@vero/gui-theme"
 
 type GridInfo = {
 	cellWidth: number

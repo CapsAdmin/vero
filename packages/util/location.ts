@@ -1,4 +1,3 @@
-import { useTranslation, FallbackTranslate } from "./../gui/translation"
 import { useEffect, useState } from "react"
 
 const parseQueryString = (str: string) => {
@@ -44,9 +43,8 @@ class LocationManager {
 		const previousName = previousPathName.split("/").pop() || ""
 		const currentName = pathName.split("/").pop() || ""
 
-		useTranslation("PageTitles")
-		const title = FallbackTranslate("PageTitles", pathName, FallbackTranslate("PageTitles", currentName, currentName))
-		const previousTitle = FallbackTranslate("PageTitles", previousPathName, FallbackTranslate("PageTitles", previousName, previousName))
+		const title = currentName
+		const previousTitle = previousName
 
 		useEffect(() => {
 			const handleChange = () => {

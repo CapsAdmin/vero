@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactNode } from "react"
-import { BorderSizes, ThemeColor, ThemeSizes, useTheme } from "../theme"
+import { BorderSizes, ThemeColor, ThemeSizes, useTheme } from "@vero/gui-theme"
 
 export const Box = (props: {
 	padding?: ThemeSizes

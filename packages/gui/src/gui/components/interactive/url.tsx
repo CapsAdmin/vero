@@ -1,5 +1,5 @@
 import { Showcase } from "@frontend/gui/showcase"
-import { TextSizes, ThemeColor } from "@frontend/gui/theme"
+import { TextSizes, ThemeColor } from "@vero/gui-theme"
 import { Text } from "@frontend/gui/typography"
 import React, { ReactNode } from "react"
 import { Clickable } from "./clickable"

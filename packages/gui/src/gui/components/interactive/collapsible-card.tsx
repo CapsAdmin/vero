@@ -1,11 +1,10 @@
 import React, { CSSProperties, ReactNode, useState } from "react"
 import { Column } from "@frontend/gui/components/layout/row-column"
 import { Gutter } from "@frontend/gui/components/layout/gutter"
-import { useTheme } from "@frontend/gui/theme"
+import { useTheme, Icon } from "@vero/gui-theme"
 import { Box } from "@frontend/gui/components/box"
 import { ClickableIcon } from "./clickable-icon"
 import { ReactCollapse } from "@frontend/app/thirdparty"
-import { Icon } from "@frontend/gui/themes/base"
 
 export const CollapsibleCard = (props: { style?: CSSProperties; children: ReactNode; expanded?: boolean; disabled?: boolean }) => {
 	const theme = useTheme()

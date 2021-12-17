@@ -1,4 +1,4 @@
-import { ThemeColor, ThemeSizes, useTheme } from "@frontend/gui/theme"
+import { ThemeColor, ThemeSizes, useTheme } from "@vero/gui-theme"
 import React, { CSSProperties } from "react"
 
 export const Dot = (props: { color: ThemeColor; size?: ThemeSizes; style?: CSSProperties }) => {

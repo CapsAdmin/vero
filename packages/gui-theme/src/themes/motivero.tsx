@@ -1,7 +1,7 @@
-import { BuildShadow, useTheme } from "@frontend/gui/theme"
-import { color_util } from "@frontend/other/colors"
-import { SetupFontFace } from "../typography"
+import { color_util } from "@vero/util/colors"
+import { BuildShadow, SetupFontFace } from "../util"
 import { BaseTheme } from "./base"
+import { useTheme } from "../"
 const sizes = {
 	none: 0,
 	line: 1,
@@ -51,39 +51,19 @@ const Colors = {
 	},
 }
 
-const shadow = BuildShadow([
-	{
-		x: 0,
-		y: 0,
-		blur: 10,
-		radius: 0,
-		color: color_util.ModifyAlpha(Colors.Grey.Black, 0.2),
-	},
-])
-
-const shadowFooter = BuildShadow([
-	{
-		x: 0,
-		y: 0,
-		blur: 15,
-		radius: 0,
-		color: color_util.ModifyAlpha(Colors.Grey.Black, 0.15),
-	},
-])
-
 export class MotiveroTheme extends BaseTheme {
-	muteSounds = true
-	lineHeight = 7
+	override muteSounds = true
+	override lineHeight = 7
 
-	fonts = SetupFontFace({
-		heading: import("@frontend/assets/fonts/PostenSans-Medium.ttf"),
-		"body-weak": import("@frontend/assets/fonts/PostenSans-Light.ttf"),
-		body: import("@frontend/assets/fonts/PostenSans-Regular.ttf"),
-		"body-medium": import("@frontend/assets/fonts/PostenSans-Medium.ttf"),
-		"body-strong": import("@frontend/assets/fonts/PostenSans-Bold.ttf"),
-		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
+	override fonts = SetupFontFace({
+		heading: import("../assets/fonts/PostenSans-Medium.ttf"),
+		"body-weak": import("../assets/fonts/PostenSans-Light.ttf"),
+		body: import("../assets/fonts/PostenSans-Regular.ttf"),
+		"body-medium": import("../assets/fonts/PostenSans-Medium.ttf"),
+		"body-strong": import("../assets/fonts/PostenSans-Bold.ttf"),
+		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
-	textSizes = {
+	override textSizes = {
 		XS: 8,
 		S: 12,
 		M: 15,
@@ -93,14 +73,32 @@ export class MotiveroTheme extends BaseTheme {
 		XXXL: 40,
 	}
 
-	strokeWidth = sizes.line * 1
-	strokeWidthThick = sizes.line * 2
-	underlineOffset = "1px" as unknown as number
-	underlineThickness = 1
-	shadow = shadow
-	shadowFooter = shadowFooter
-	backgroundStyle = { backgroundImage: " " }
-	lineStyle = {
+	override strokeWidth = sizes.line * 1
+	override strokeWidthThick = sizes.line * 2
+	override underlineOffset = "1px" as unknown as number
+	override underlineThickness = 1
+	override shadow = BuildShadow([
+		{
+			x: 0,
+			y: 0,
+			blur: 10,
+			radius: 0,
+			color: color_util.ModifyAlpha(Colors.Grey.Black, 0.2),
+		},
+	])
+
+	override shadowFooter = BuildShadow([
+		{
+			x: 0,
+			y: 0,
+			blur: 15,
+			radius: 0,
+			color: color_util.ModifyAlpha(Colors.Grey.Black, 0.15),
+		},
+	])
+
+	override backgroundStyle = { backgroundImage: " " }
+	override lineStyle = {
 		Render: (props: { strong: boolean; horizontal: boolean; color: string }) => {
 			const theme = useTheme()
 			const thickness = props.strong ? theme.strokeWidthThick : theme.strokeWidth
@@ -123,14 +121,14 @@ export class MotiveroTheme extends BaseTheme {
 		},
 	}
 
-	borderSizes = {
+	override borderSizes = {
 		none: 0,
 		default: this.sizes.XXS,
 		small: this.sizes.XXS,
 		big: this.sizes.XS,
 		circle: "50%",
 	}
-	sizes = {
+	override sizes = {
 		default: sizes.M,
 		IconTiny: 16,
 		IconSmall: 24,
@@ -139,7 +137,7 @@ export class MotiveroTheme extends BaseTheme {
 		...sizes,
 	}
 
-	colors = {
+	override colors = {
 		primary: Colors.Motivero.Primary,
 		secondary: Colors.Accents.Primary,
 

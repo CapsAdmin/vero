@@ -1,5 +1,5 @@
 import React, { ReactNode, useRef } from "react"
-import { useTheme } from "@frontend/gui/theme"
+import { useTheme } from "@vero/gui-theme"
 import { Text } from "@frontend/gui/typography"
 
 export const Input = (

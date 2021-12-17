@@ -1,7 +1,7 @@
 import { ReactCollapse } from "@frontend/app/thirdparty"
 import { ClickableIcon } from "@frontend/gui/components/interactive/clickable-icon"
 import { Column } from "@frontend/gui/components/layout/row-column"
-import { useTheme } from "@frontend/gui/theme"
+import { useTheme } from "@vero/gui-theme"
 import React, { ReactNode, useState } from "react"
 import { MdExpandLess } from "react-icons/md"
 import { Card } from "../card"

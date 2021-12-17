@@ -1,8 +1,8 @@
-import { location } from "@frontend/other/location"
-import { pages } from "@frontend/other/pages"
+import { location } from "@vero/util/location"
+import { pages } from "@vero/util/pages"
 import { Page } from "./components/layout/page"
 import { Text } from "./typography"
-export { pages } from "@frontend/other/pages"
+export { pages } from "@vero/util/pages"
 
 export const Pages = () => {
 	const { pathName } = location.use()

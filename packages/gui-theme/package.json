@@ -1,7 +1,8 @@
 {
-	"name": "@vero/gui",
+	"private": true,
+	"name": "@vero/gui-theme",
+	"main": "./src/index.ts",
 	"devDependencies": {
-		"@babel/preset-env": "^7.1.6",
 		"@types/animejs": "^3.1.4",
 		"@types/chroma-js": "^2.1.3",
 		"@types/react": "^17.0.37",
@@ -10,12 +11,12 @@
 		"typescript": "^4.5.4"
 	},
 	"dependencies": {
-		"bowser": "^2.11.0",
 		"animejs": "^3.2.1",
-		"chroma-js": "^2.1.2",
 		"autosize": "^5.0.1",
 		"avataaars": "^2.0.0",
 		"axios": "^0.24.0",
+		"bowser": "^2.11.0",
+		"chroma-js": "^2.1.2",
 		"crc-32": "^1.2.0",
 		"humanize-duration": "^3.27.1",
 		"moment": "^2.29.1",
@@ -29,7 +30,6 @@
 		"react-native": "^0.66.4",
 		"react-native-web": "^0.17.5",
 		"react-responsive-carousel": "^3.2.22",
-		"@vero/gui-theme": "workspace",
 		"@vero/util": "workspace"
 	}
 }

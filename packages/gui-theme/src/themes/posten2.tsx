@@ -1,6 +1,5 @@
-import { BuildShadow } from "@frontend/gui/theme"
-import { color_util } from "@frontend/other/colors"
-import { SetupFontFace } from "../typography"
+import { BuildShadow, SetupFontFace } from "../util"
+import { color_util } from "@vero/util/colors"
 import { BaseTheme } from "./base"
 const sizes = {
 	none: 0,
@@ -45,18 +44,18 @@ const shadowFooter = BuildShadow([
 ])
 
 export class Posten2Theme extends BaseTheme {
-	muteSounds = true
-	lineHeight = 15
+	override muteSounds = true
+	override lineHeight = 15
 
-	fonts = SetupFontFace({
-		heading: import("@frontend/assets/fonts/PostenSans-Medium.ttf"),
-		"body-weak": import("@frontend/assets/fonts/PostenSans-Light.ttf"),
-		body: import("@frontend/assets/fonts/PostenSans-Regular.ttf"),
-		"body-medium": import("@frontend/assets/fonts/PostenSans-Medium.ttf"),
-		"body-strong": import("@frontend/assets/fonts/PostenSans-Bold.ttf"),
-		monospace: import("@frontend/assets/fonts/FoundryMonolinePN-Light.ttf"),
+	override fonts = SetupFontFace({
+		heading: import("../assets/fonts/PostenSans-Medium.ttf"),
+		"body-weak": import("../assets/fonts/PostenSans-Light.ttf"),
+		body: import("../assets/fonts/PostenSans-Regular.ttf"),
+		"body-medium": import("../assets/fonts/PostenSans-Medium.ttf"),
+		"body-strong": import("../assets/fonts/PostenSans-Bold.ttf"),
+		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
 	})
-	textSizes = {
+	override textSizes = {
 		XS: 13,
 		S: 14,
 		M: 16,
@@ -65,16 +64,16 @@ export class Posten2Theme extends BaseTheme {
 		XXL: 35,
 		XXXL: 35,
 	}
-	strokeWidth = sizes.line * 1
-	strokeWidthThick = sizes.line * 2
+	override strokeWidth = sizes.line * 1
+	override strokeWidthThick = sizes.line * 2
 	smallBorderRadius = 2
 	bigBorderRadius = 2
-	underlineOffset = "0.25em" as unknown as number
-	underlineThickness = 1
-	shadow = shadow
-	shadowFooter = shadowFooter
-	backgroundStyle = { backgroundImage: " " }
-	sizes = {
+	override underlineOffset = "0.25em" as unknown as number
+	override underlineThickness = 1
+	override shadow = shadow
+	override shadowFooter = shadowFooter
+	override backgroundStyle = { backgroundImage: " " }
+	override sizes = {
 		default: sizes.M,
 		IconTiny: 16,
 		IconSmall: 24,
@@ -82,14 +81,14 @@ export class Posten2Theme extends BaseTheme {
 		IconLarge: 64,
 		...sizes,
 	}
-	borderSizes = {
+	override borderSizes = {
 		none: 0,
 		default: this.smallBorderRadius,
 		small: this.smallBorderRadius,
 		big: this.bigBorderRadius,
 		circle: "50%",
 	}
-	colors = {
+	override colors = {
 		primary: colors.red,
 		secondary: colors.red,
 
