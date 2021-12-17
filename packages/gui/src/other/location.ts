@@ -1,6 +1,14 @@
 import { useTranslation, FallbackTranslate } from "./../gui/translation"
 import { useEffect, useState } from "react"
-import { parseQueryString } from "@frontend/other/other"
+
+const parseQueryString = (str: string) => {
+	const out: { [key: string]: string } = {}
+	str.split("&").map((pair) => {
+		const lr = pair.split("=")
+		return (out[lr[0]] = lr[1])
+	})
+	return out
+}
 class LocationManager {
 	constructor() {
 		window.addEventListener("popstate", () => this.Notify())

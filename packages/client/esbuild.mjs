@@ -18,7 +18,6 @@ esbuild
 		bundle: true,
 		minify: true,
 		sourcemap: "both",
-		inject: ["./src/import_react.js"],
 		define: {
 			"process.env.NODE_ENV": '"development"',
 			"process.env.JEST_WORKER_ID": "undefined",

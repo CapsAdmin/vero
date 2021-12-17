@@ -24,6 +24,5 @@
 		"sourceMap": true,
 		"strictNullChecks": false
 	},
-	"exclude": ["./build/*", "./dist/*"],
-	"include": ["./src/**/*", "../client/src/react-app-env.d.ts"]
+	"exclude": ["./build/*", "./dist/*"]
 }

@@ -17,15 +17,6 @@ export function Clamp(val: number, min: number, max: number) {
 	return Math.max(min, Math.min(max, val))
 }
 
-export const parseQueryString = (str: string) => {
-	const out: { [key: string]: string } = {}
-	str.split("&").map((pair) => {
-		const lr = pair.split("=")
-		return (out[lr[0]] = lr[1])
-	})
-	return out
-}
-
 export const CopyToClipboard = (str: string) => {
 	const el = document.createElement("textarea")
 	el.value = str
