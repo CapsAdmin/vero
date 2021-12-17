@@ -1,0 +1,405 @@
+{
+    "body.1": {
+        "outline": [
+            "Body/1/1.png"
+        ],
+        "color": [
+            "Body/1/color.png"
+        ]
+    },
+    "body.2": {
+        "outline": [
+            "Body/2/1.png"
+        ],
+        "color": [
+            "Body/2/color.png"
+        ]
+    },
+    "eyebrow.1": {
+        "outline": [
+            "Eyebrow/1.png"
+        ],
+        "color": []
+    },
+    "eyebrow.2": {
+        "outline": [
+            "Eyebrow/2.png"
+        ],
+        "color": []
+    },
+    "eyebrow.3": {
+        "outline": [
+            "Eyebrow/3.png"
+        ],
+        "color": []
+    },
+    "eyebrow.4": {
+        "outline": [
+            "Eyebrow/4.png"
+        ],
+        "color": []
+    },
+    "eyes.1": {
+        "outline": [
+            "Eyes/1/layer-71.png"
+        ],
+        "color": [
+            "Eyes/1/color.png"
+        ]
+    },
+    "eyes.10": {
+        "outline": [
+            "Eyes/10/layer-88.png"
+        ],
+        "color": [
+            "Eyes/10/color.png"
+        ]
+    },
+    "eyes.11": {
+        "outline": [
+            "Eyes/11/layer-90.png"
+        ],
+        "color": [
+            "Eyes/11/color.png"
+        ]
+    },
+    "eyes.12": {
+        "outline": [
+            "Eyes/12/layer-19.png"
+        ],
+        "color": []
+    },
+    "eyes.2": {
+        "outline": [
+            "Eyes/2/layer-77.png"
+        ],
+        "color": [
+            "Eyes/2/color.png"
+        ]
+    },
+    "eyes.3": {
+        "outline": [
+            "Eyes/3/layer-84.png"
+        ],
+        "color": [
+            "Eyes/3/color.png"
+        ]
+    },
+    "eyes.4": {
+        "outline": [
+            "Eyes/4/layer-82.png"
+        ],
+        "color": []
+    },
+    "eyes.5": {
+        "outline": [
+            "Eyes/5/layer-84.png"
+        ],
+        "color": [
+            "Eyes/5/color.png"
+        ]
+    },
+    "eyes.6": {
+        "outline": [
+            "Eyes/6/layer-86.png"
+        ],
+        "color": [
+            "Eyes/6/color.png"
+        ]
+    },
+    "eyes.7": {
+        "outline": [
+            "Eyes/7/layer-12.png"
+        ],
+        "color": []
+    },
+    "eyes.8": {
+        "outline": [
+            "Eyes/8/layer-88.png"
+        ],
+        "color": []
+    },
+    "eyes.9": {
+        "outline": [
+            "Eyes/9/layer-11.png"
+        ],
+        "color": []
+    },
+    "face.1": {
+        "outline": [
+            "Face/1/layer-45.png"
+        ],
+        "color": [
+            "Face/1/color.png"
+        ]
+    },
+    "face.2": {
+        "outline": [
+            "Face/2/layer-62.png"
+        ],
+        "color": [
+            "Face/2/color.png"
+        ]
+    },
+    "face.3": {
+        "outline": [
+            "Face/3/inserted-image.png"
+        ],
+        "color": [
+            "Face/3/color.png"
+        ]
+    },
+    "face.4": {
+        "outline": [
+            "Face/4/inserted-image.png"
+        ],
+        "color": [
+            "Face/4/color.png"
+        ]
+    },
+    "hair.1": {
+        "outline": [
+            "Hair/1/z1.png"
+        ],
+        "color": [
+            "Hair/1/color.png"
+        ]
+    },
+    "hair.10": {
+        "outline": [
+            "Hair/10/inserted-image.png"
+        ],
+        "color": [
+            "Hair/10/color.png"
+        ]
+    },
+    "hair.11": {
+        "outline": [
+            "Hair/11/1.png",
+            "Hair/11/2.png"
+        ],
+        "color": [
+            "Hair/11/1color.png",
+            "Hair/11/2color.png"
+        ]
+    },
+    "hair.12": {
+        "outline": [
+            "Hair/12/inserted-image.png"
+        ],
+        "color": [
+            "Hair/12/color.png"
+        ]
+    },
+    "hair.13": {
+        "outline": [
+            "Hair/13/layer-50.png"
+        ],
+        "color": [
+            "Hair/13/color.png"
+        ]
+    },
+    "hair.14": {
+        "outline": [
+            "Hair/14/layer-49.png"
+        ],
+        "color": [
+            "Hair/14/color.png",
+            "Hair/14/color2.png"
+        ]
+    },
+    "hair.15": {
+        "outline": [
+            "Hair/15/layer-48.png"
+        ],
+        "color": [
+            "Hair/15/color.png"
+        ]
+    },
+    "hair.16": {
+        "outline": [
+            "Hair/16/layer-47.png"
+        ],
+        "color": [
+            "Hair/16/color.png"
+        ]
+    },
+    "hair.17": {
+        "outline": [
+            "Hair/17/buzz.png"
+        ],
+        "color": []
+    },
+    "hair.2": {
+        "outline": [
+            "Hair/2/z1.png"
+        ],
+        "color": [
+            "Hair/2/color.png"
+        ]
+    },
+    "hair.3": {
+        "outline": [
+            "Hair/3/z1.png"
+        ],
+        "color": [
+            "Hair/3/color.png"
+        ]
+    },
+    "hair.4": {
+        "outline": [
+            "Hair/4/layer-56.png"
+        ],
+        "color": [
+            "Hair/4/color.png"
+        ]
+    },
+    "hair.5": {
+        "outline": [
+            "Hair/5/layer-55.png"
+        ],
+        "color": [
+            "Hair/5/color.png"
+        ]
+    },
+    "hair.6": {
+        "outline": [
+            "Hair/6/layer-54.png"
+        ],
+        "color": [
+            "Hair/6/color.png"
+        ]
+    },
+    "hair.7": {
+        "outline": [
+            "Hair/7/layer-53.png"
+        ],
+        "color": [
+            "Hair/7/color.png"
+        ]
+    },
+    "hair.8": {
+        "outline": [
+            "Hair/8/layer-52.png"
+        ],
+        "color": [
+            "Hair/8/color.png"
+        ]
+    },
+    "hair.9": {
+        "outline": [
+            "Hair/9/layer-51.png"
+        ],
+        "color": [
+            "Hair/9/color.png"
+        ]
+    },
+    "mouth.1": {
+        "outline": [
+            "Mouth/1.png"
+        ],
+        "color": []
+    },
+    "mouth.10": {
+        "outline": [
+            "Mouth/10.png"
+        ],
+        "color": []
+    },
+    "mouth.2": {
+        "outline": [
+            "Mouth/2.png"
+        ],
+        "color": []
+    },
+    "mouth.3": {
+        "outline": [
+            "Mouth/3.png"
+        ],
+        "color": []
+    },
+    "mouth.4": {
+        "outline": [
+            "Mouth/4.png"
+        ],
+        "color": []
+    },
+    "mouth.5": {
+        "outline": [
+            "Mouth/5.png"
+        ],
+        "color": []
+    },
+    "mouth.6": {
+        "outline": [
+            "Mouth/6.png"
+        ],
+        "color": []
+    },
+    "mouth.7": {
+        "outline": [
+            "Mouth/7.png"
+        ],
+        "color": []
+    },
+    "mouth.8": {
+        "outline": [
+            "Mouth/8.png"
+        ],
+        "color": []
+    },
+    "mouth.9": {
+        "outline": [
+            "Mouth/9.png"
+        ],
+        "color": []
+    },
+    "nose.1": {
+        "outline": [
+            "Nose/1.png"
+        ],
+        "color": []
+    },
+    "nose.2": {
+        "outline": [
+            "Nose/2.png"
+        ],
+        "color": []
+    },
+    "nose.3": {
+        "outline": [
+            "Nose/3.png"
+        ],
+        "color": []
+    },
+    "nose.4": {
+        "outline": [
+            "Nose/4.png"
+        ],
+        "color": []
+    },
+    "nose.5": {
+        "outline": [
+            "Nose/5.png"
+        ],
+        "color": []
+    },
+    "nose.6": {
+        "outline": [
+            "Nose/6.png"
+        ],
+        "color": []
+    },
+    "nose.7": {
+        "outline": [
+            "Nose/7.png"
+        ],
+        "color": []
+    },
+    "nose.8": {
+        "outline": [
+            "Nose/8.png"
+        ],
+        "color": []
+    }
+}

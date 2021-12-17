@@ -1,0 +1,6 @@
+{
+  "name": "vero",
+  "scripts": {
+    "test": "echo \"hell world\""
+  }
+}
