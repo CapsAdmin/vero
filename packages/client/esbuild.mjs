@@ -16,11 +16,11 @@ esbuild
 		entryPoints: ["src/index.tsx"],
 		outfile: "public/bundle.js",
 		bundle: true,
-		minify: false,
+		minify: true,
 		sourcemap: "both",
 		inject: ["./src/import_react.js"],
 		define: {
-			"process.env.NODE_ENV": '"production"',
+			"process.env.NODE_ENV": '"development"',
 			"process.env.JEST_WORKER_ID": "undefined",
 			"process.env.PUBLIC_URL": '"http://localhost"',
 		},

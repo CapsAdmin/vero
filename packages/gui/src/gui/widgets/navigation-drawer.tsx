@@ -123,54 +123,11 @@ export const NavigationDrawer = () => {
 					}}
 					stretchRow
 				>
-					<div className="userAvatar">
-						<Header />
-					</div>
+					<Header />
 					<Line />
-					<div className="dashboard">
-						<DrawerButton page="dashboard" icon="Home32"></DrawerButton>
-					</div>
-					<div className="reviews">
-						<DrawerButton page="reviews" icon="Comment32"></DrawerButton>
-					</div>
-					{/*<DrawerButton page="accuracy" icon="Accuracy32"></DrawerButton>}*/}
-					<div className="leaderboard">{<DrawerButton page="leaderboard" icon="Trophy32"></DrawerButton>}</div>
-					<div className="productivity">
-						<DrawerButton page="productivity" icon="Productivity32"></DrawerButton>
-					</div>
-					<div className="service">
-						<DrawerButton page="service" icon="Service32"></DrawerButton>
-					</div>
-					{/*<DrawerButton page="deviations" icon="Deviation32"></DrawerButton>*/}
-					<Line />
-					<div className="feedback">
-						<DrawerButton page="feedback" icon="Comment32"></DrawerButton>
-					</div>
-					<Line></Line>
-					<div className="profile">
-						<DrawerButton page="profile" icon="Warrior32"></DrawerButton>
-					</div>
-					<div className="settings">
-						<DrawerButton page="settings" icon="Settings"></DrawerButton>
-					</div>
-					<div className="about">
-						<DrawerButton page="about" icon="Quality32"></DrawerButton>
-					</div>
-					<Line />
-					<Gutter size="none" />
-					<Row itemPadding="XL" rowAlign="center">
-						<URL
-							color="negative"
-							size="L"
-							onClick={async () => {
-								setDrawerEnabled(false)
-								location.Replace("/")
-							}}
-						>
-							{t("SignOut")}
-						</URL>
-					</Row>
-					<Gutter size="none" />
+					<DrawerButton page="index" icon="Home32"></DrawerButton>
+					<DrawerButton page="gui-showcase" icon="Settings"></DrawerButton>
+					<DrawerButton page="settings" icon="Settings"></DrawerButton>
 				</Column>
 			</div>
 		</>
