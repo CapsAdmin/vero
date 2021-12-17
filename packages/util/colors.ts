@@ -85,6 +85,9 @@ const knownColors = [
 type ColorNames = typeof knownColors[number]
 
 class Colors {
+	ColorToRGB(color: string) {
+		return chroma(color).rgb()
+	}
 	ModifyAlpha(color: string, alpha: number) {
 		return chroma(color).alpha(alpha).hex()
 	}

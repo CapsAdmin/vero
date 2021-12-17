@@ -3,33 +3,14 @@
 	"name": "@vero/gui-theme",
 	"main": "./src/index.ts",
 	"devDependencies": {
-		"@types/animejs": "^3.1.4",
-		"@types/chroma-js": "^2.1.3",
 		"@types/react": "^17.0.37",
-		"@types/react-native": "^0.66.9",
-		"csstype": "^3.0.10",
 		"typescript": "^4.5.4"
 	},
 	"dependencies": {
-		"animejs": "^3.2.1",
-		"autosize": "^5.0.1",
-		"avataaars": "^2.0.0",
-		"axios": "^0.24.0",
-		"bowser": "^2.11.0",
-		"chroma-js": "^2.1.2",
-		"crc-32": "^1.2.0",
-		"humanize-duration": "^3.27.1",
-		"moment": "^2.29.1",
 		"normalize.css": "^8.0.1",
-		"pepjs": "^0.5.3",
 		"react": "17.0.2",
-		"react-collapse": "^5.1.1",
 		"react-dom": "^17.0.2",
-		"react-dropdown-select": "^4.8.0",
 		"react-icons": "^4.3.1",
-		"react-native": "^0.66.4",
-		"react-native-web": "^0.17.5",
-		"react-responsive-carousel": "^3.2.22",
 		"@vero/util": "workspace"
 	}
 }

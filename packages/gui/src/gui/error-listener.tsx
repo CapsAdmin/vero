@@ -1,6 +1,5 @@
 import { api } from "@frontend/api/api"
 import { userDataState } from "@frontend/api/driver-resources/userdata"
-import "@frontend/app/thirdparty"
 import "@frontend/gui/showcase"
 import "@frontend/gui/translation"
 import { location } from "@vero/util/location"

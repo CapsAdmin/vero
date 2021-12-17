@@ -4,7 +4,7 @@ import { Gutter } from "@frontend/gui/components/layout/gutter"
 import { useTheme, Icon } from "@vero/gui-theme"
 import { Box } from "@frontend/gui/components/box"
 import { ClickableIcon } from "./clickable-icon"
-import { ReactCollapse } from "@frontend/app/thirdparty"
+import ReactCollapse from "react-collapse"
 
 export const CollapsibleCard = (props: { style?: CSSProperties; children: ReactNode; expanded?: boolean; disabled?: boolean }) => {
 	const theme = useTheme()

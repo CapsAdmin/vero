@@ -212,7 +212,7 @@ const PNG = (promise: Promise<{ default: string }>) => {
 		const dimensions = typeof props.size == "string" ? parseFloat(props.size) : props.size || 16
 
 		if (props.color) {
-			let [r, g, b] = chroma(props.color).rgb()
+			let [r, g, b] = color_util.ColorToRGB(props.color || "white")
 			let id = "color" + r + "_" + g + "_" + b
 
 			return (

@@ -1,3 +1,6 @@
+// normalizes all css
+import "normalize.css"
+
 import { getContrastedColor } from "./util"
 import { Observer } from "@vero/util/observer"
 export { BaseTheme, Icon } from "./themes/base"
