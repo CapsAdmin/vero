@@ -11,6 +11,7 @@ const tsc = () => {
 	})
 }
 
+console.time("build")
 esbuild
 	.build({
 		entryPoints: ["src/index.tsx"],
@@ -52,7 +53,9 @@ esbuild
 		},
 	})
 	.catch(() => process.exit(1))
-
+	.then(() => {
+		console.timeEnd("build")
+	})
 fs.emptyDirSync("./public/assets/")
 fs.copySync("../gui/src/assets/", "./public/assets/")
 
