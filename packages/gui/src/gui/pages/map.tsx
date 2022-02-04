@@ -13,6 +13,18 @@ import { Column } from "../components/layout/row-column"
 import { H2 } from "../showcase/typography"
 import { Text } from "../typography"
 
+/*
+    navn
+    sist opdatert
+    antall pakker på terminal
+    pakker sortert i timen
+    hvor mange som er checked in
+    pause time
+
+    kontrollere skjermene med telefon? spill osv
+    bruke unity?
+*/
+
 let terminals: Array<{
 	name: string
 	description: string
@@ -176,7 +188,7 @@ const MapLine = (props: { from: LatLngTuple; to: LatLngTuple; map: LeafletMap })
 					className="path-forward"
 					d={`M 0 ${rect.height} Q ${rect.width / 2} ${rect.height / 4} ${rect.width} 0`}
 					strokeWidth={1}
-					strokeDasharray={(1 / map.getZoom()) * 100}
+					strokeDasharray={(1 / map.getZoom()) * 700}
 					fill="transparent"
 					stroke={theme.colors.textForeground}
 				/>
@@ -252,7 +264,9 @@ function Map() {
 					<Box>
 						<Column style={{ maxWidth: 300 }}>
 							<H2>{selectedTerminal.name}</H2>
-							<Text color="gold">Lv. 120</Text>
+							<Text>6003 pakker</Text>
+							<Text>3052 sorteringer i timen</Text>
+							<Text>333 ansatte sjekket inn</Text>
 							<img style={{ width: 300 }} src={selectedTerminal.image}></img>
 							<Text>{selectedTerminal.description}</Text>
 						</Column>
