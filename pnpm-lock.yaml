@@ -10,7 +10,7 @@ importers:
       '@types/react': ^17.0.37
       '@types/react-dom': ^17.0.11
       '@vero/gui': workspace
-      create-serve: ^1.0.1
+      create-serve: github:kevinfiol/serve#main
       esbuild: ^0.14.5
       esbuild-plugin-import-map: ^2.1.0
       fs-extra: ^10.0.0
@@ -20,13 +20,13 @@ importers:
       typescript: ^4.5.4
     dependencies:
       '@vero/gui': link:../gui
+      create-serve: github.com/kevinfiol/serve/3e29f2c40a916f60feae68059010552fec66cd9a
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-native-web: 0.17.5_react-dom@17.0.2+react@17.0.2
     devDependencies:
       '@types/react': 17.0.37
       '@types/react-dom': 17.0.11
-      create-serve: 1.0.1
       esbuild: 0.14.5
       esbuild-plugin-import-map: 2.1.0
       fs-extra: 10.0.0
@@ -35,6 +35,8 @@ importers:
   packages/gui:
     specifiers:
       '@types/animejs': ^3.1.4
+      '@types/leaflet': ^1.7.9
+      '@types/proj4leaflet': ^1.0.6
       '@types/react': ^17.0.37
       '@types/react-native': ^0.66.9
       '@vero/gui-theme': workspace
@@ -44,38 +46,50 @@ importers:
       avataaars: ^2.0.0
       csstype: ^3.0.10
       humanize-duration: ^3.27.1
+      leaflet: ^1.7.1
       moment: ^2.29.1
       normalize.css: ^8.0.1
       pepjs: ^0.5.3
+      proj4leaflet: ^1.0.2
       react: 17.0.2
       react-collapse: ^5.1.1
       react-dom: ^17.0.2
       react-dropdown-select: ^4.8.0
       react-icons: ^4.3.1
+      react-leaflet: ^3.2.5
       react-native: ^0.66.4
       react-native-web: ^0.17.5
       react-responsive-carousel: ^3.2.22
+      react-router-dom: '6'
+      svg-variable-width-line: ^0.1.2
       typescript: ^4.5.4
     dependencies:
+      '@types/proj4leaflet': 1.0.6
       '@vero/gui-theme': link:../gui-theme
       '@vero/util': link:../util
       animejs: 3.2.1
       autosize: 5.0.1
       avataaars: 2.0.0_react@17.0.2
       humanize-duration: 3.27.1
+      leaflet: 1.7.1
       moment: 2.29.1
       normalize.css: 8.0.1
       pepjs: 0.5.3
+      proj4leaflet: 1.0.2
       react: 17.0.2
       react-collapse: 5.1.1_react@17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-dropdown-select: 4.8.0_react-dom@17.0.2+react@17.0.2
       react-icons: 4.3.1_react@17.0.2
+      react-leaflet: 3.2.5_91fa1427a3331e02931dfea77720a290
       react-native: 0.66.4_react@17.0.2
       react-native-web: 0.17.5_react-dom@17.0.2+react@17.0.2
       react-responsive-carousel: 3.2.22
+      react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
+      svg-variable-width-line: 0.1.2
     devDependencies:
       '@types/animejs': 3.1.4
+      '@types/leaflet': 1.7.9
       '@types/react': 17.0.37
       '@types/react-native': 0.66.9
       csstype: 3.0.10
@@ -1152,6 +1166,18 @@ packages:
       chalk: 4.1.2
     dev: false
 
+  /@react-leaflet/core/1.1.1_91fa1427a3331e02931dfea77720a290:
+    resolution: {integrity: sha512-7PGLWa9MZ5x/cWy8EH2VzI4T8q5WpuHbixzCDXqixP/WyqwIrg5NDUPgYuFnB4IEIZF+6nA265mYzswFo/h1Pw==}
+    peerDependencies:
+      leaflet: ^1.7.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+    dependencies:
+      leaflet: 1.7.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /@react-native-community/cli-debugger-ui/6.0.0-rc.0:
     resolution: {integrity: sha512-achYcPPoWa9D02C5tn6TBzjeY443wQTyx37urptc75JpZ7gR5YHsDyIEEWa3DDYp1va9zx/iGg+uZ/hWw07GAw==}
     dependencies:
@@ -1319,6 +1345,9 @@ packages:
     resolution: {integrity: sha512-WUjeFT2SXd6intfE6cg6eL1jk/JL88JqM2gC4WqO4iHLmbCvHUq6aoLK13lGpDWs4FtS2PHoYraJZ0dEx99Dyg==}
     dev: true
 
+  /@types/geojson/7946.0.8:
+    resolution: {integrity: sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==}
+
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
@@ -1341,12 +1370,29 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: false
 
+  /@types/leaflet/1.7.9:
+    resolution: {integrity: sha512-H8vPgD49HKzqM41ArHGZM70g/tfhp8W+JcPxfnF+5H/Xvp+xiP+KQOUNWU8U89fqS1Jj3cpRY/+nbnaHFzwnFA==}
+    dependencies:
+      '@types/geojson': 7946.0.8
+
   /@types/node/17.0.0:
     resolution: {integrity: sha512-eMhwJXc931Ihh4tkU+Y7GiLzT/y/DBNpNtr4yU9O2w3SYBsr9NaOPhQlLKRmoWtI54uNwuo0IOUFQjVOTZYRvw==}
     dev: false
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
+    dev: false
+
+  /@types/proj4/2.5.2:
+    resolution: {integrity: sha512-/Nmfn9p08yaYw6xo5f2b0L+2oHk2kZeOkp5v+4VCeNfq+ETlLQbmHmC97/pjDIEZy8jxwz7pdPpwNzDHM5cuJw==}
+    dev: false
+
+  /@types/proj4leaflet/1.0.6:
+    resolution: {integrity: sha512-5Js2Yl+wpvOpYNVpQG5PjBSqUQUDOh7TqdDMyWQIGJKXub7AMi4B6VbHL9Sk/23JjlKy2EGsZWM2/tV7vOcn/g==}
+    dependencies:
+      '@types/geojson': 7946.0.8
+      '@types/leaflet': 1.7.9
+      '@types/proj4': 2.5.2
     dev: false
 
   /@types/prop-types/15.7.4:
@@ -2076,11 +2122,6 @@ packages:
       object-assign: 4.1.1
     dev: false
 
-  /create-serve/1.0.1:
-    resolution: {integrity: sha512-cDAmBGhkwolS7ihq7SnPE8KwjYUZl5FaI9Pq5ZBwNelSKvFR9OoAA4/B5BfB/NC+eYaykBpX9RVMfuU4DHtrPw==}
-    hasBin: true
-    dev: true
-
   /cross-env/6.0.3:
     resolution: {integrity: sha512-+KqxF6LCvfhWvADcDPqo64yVIB31gv/jQulX2NGzKS/g3GEVz6/pt4wjHFtFWsHMddebWD/sDthJemzM4MaAag==}
     engines: {node: '>=8.0'}
@@ -2788,6 +2829,12 @@ packages:
       source-map: 0.7.3
     dev: false
 
+  /history/5.2.0:
+    resolution: {integrity: sha512-uPSF6lAJb3nSePJ43hN3eKj1dTWpN9gMod0ZssbFTIsen+WehTmEadgL+kg78xLJFdRfrrC//SavDzmRVdE+Ig==}
+    dependencies:
+      '@babel/runtime': 7.16.5
+    dev: false
+
   /http-errors/1.8.1:
     resolution: {integrity: sha512-Kpk9Sm7NmI+RHhnj6OIWDI1d6fIoFAtFt9RLaTMRlg/8w49juAStsrBgp0Dp4OdxdVbRIeKhtCUvoi/RuAhO4g==}
     engines: {node: '>= 0.6'}
@@ -3227,6 +3274,10 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /leaflet/1.7.1:
+    resolution: {integrity: sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw==}
+    dev: false
+
   /leven/3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
     engines: {node: '>=6'}
@@ -3586,6 +3637,10 @@ packages:
       yargs: 15.4.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /mgrs/1.0.0:
+    resolution: {integrity: sha1-+5FYjnjJACVnI5XLQLJffNatGCk=}
     dev: false
 
   /micromatch/3.1.10:
@@ -4047,6 +4102,19 @@ packages:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: false
 
+  /proj4/2.7.5:
+    resolution: {integrity: sha512-5ecXUXbHAfvdhfBQpU7EhUfPCQGUCPmVup/4gnZA3bJY3JcK/xxzm4QQDz1xiXokN6ux65VDczlCtBtKrTSpAQ==}
+    dependencies:
+      mgrs: 1.0.0
+      wkt-parser: 1.3.2
+    dev: false
+
+  /proj4leaflet/1.0.2:
+    resolution: {integrity: sha512-6GdDeUlhX/tHUiMEj80xQhlPjwrXcdfD0D5OBymY8WvxfbmZcdhNqQk7n7nFf53ue6QdP9ls9ZPjsAxnbZDTsw==}
+    dependencies:
+      proj4: 2.7.5
+    dev: false
+
   /promise/7.3.1:
     resolution: {integrity: sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg==}
     dependencies:
@@ -4152,6 +4220,19 @@ packages:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
     dev: false
 
+  /react-leaflet/3.2.5_91fa1427a3331e02931dfea77720a290:
+    resolution: {integrity: sha512-Z3KZ+4SijsRbbrt2I1a3ZDY6+V6Pm91eYTdxTN18G6IOkFRsJo1BuSPLFnyFrlF3WDjQFPEcTPkEgD1VEeAoBg==}
+    peerDependencies:
+      leaflet: ^1.7.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+    dependencies:
+      '@react-leaflet/core': 1.1.1_91fa1427a3331e02931dfea77720a290
+      leaflet: 1.7.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /react-native-codegen/0.0.7:
     resolution: {integrity: sha512-dwNgR8zJ3ALr480QnAmpTiqvFo+rDtq6V5oCggKhYFlRjzOmVSFn3YD41u8ltvKS5G2nQ8gCs2vReFFnRGLYng==}
     dependencies:
@@ -4237,6 +4318,27 @@ packages:
       classnames: 2.3.1
       prop-types: 15.7.2
       react-easy-swipe: 0.0.21
+    dev: false
+
+  /react-router-dom/6.2.1_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-I6Zax+/TH/cZMDpj3/4Fl2eaNdcvoxxHoH1tYOREsQ22OKDYofGebrNm6CTPUcvLvZm63NL/vzCYdjf9CUhqmA==}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      history: 5.2.0
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-router: 6.2.1_react@17.0.2
+    dev: false
+
+  /react-router/6.2.1_react@17.0.2:
+    resolution: {integrity: sha512-2fG0udBtxou9lXtK97eJeET2ki5//UWfQSl1rlJ7quwe6jrktK9FCCc8dQb5QY6jAv3jua8bBQRhhDOM/kVRsg==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      history: 5.2.0
+      react: 17.0.2
     dev: false
 
   /react/17.0.2:
@@ -4748,6 +4850,10 @@ packages:
       has-flag: 4.0.0
     dev: false
 
+  /svg-variable-width-line/0.1.2:
+    resolution: {integrity: sha512-Lk4U09bsR7ieZEGd+m7tzOg2asXt5fgJUPQ8BpktKxK8zsz68lcvqkrdPCqscn5WhtZG/1tZpnOyOah9OdZL6g==}
+    dev: false
+
   /temp/0.8.3:
     resolution: {integrity: sha1-4Ma8TSa5AxJEEOT+2BEDAU38H1k=}
     engines: {'0': node >=0.8.0}
@@ -5002,6 +5108,10 @@ packages:
       isexe: 2.0.0
     dev: false
 
+  /wkt-parser/1.3.2:
+    resolution: {integrity: sha512-A26BOOo7sHAagyxG7iuRhnKMO7Q3mEOiOT4oGUmohtN/Li5wameeU4S6f8vWw6NADTVKljBs8bzA8JPQgSEMVQ==}
+    dev: false
+
   /wrap-ansi/6.2.0:
     resolution: {integrity: sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==}
     engines: {node: '>=8'}
@@ -5105,4 +5215,11 @@ packages:
       which-module: 2.0.0
       y18n: 4.0.3
       yargs-parser: 18.1.3
+    dev: false
+
+  github.com/kevinfiol/serve/3e29f2c40a916f60feae68059010552fec66cd9a:
+    resolution: {tarball: https://codeload.github.com/kevinfiol/serve/tar.gz/3e29f2c40a916f60feae68059010552fec66cd9a}
+    name: create-serve
+    version: 1.0.1
+    hasBin: true
     dev: false

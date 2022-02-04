@@ -4,6 +4,7 @@ import { Text } from "../typography"
 import "./error"
 import "./gui-showcase"
 import "./settings"
+import "./map"
 
 pages.Add("index", () => {
 	return (

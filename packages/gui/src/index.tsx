@@ -11,9 +11,7 @@ import { ErrorBoundary } from "./gui/error-listener"
 
 ReactDOM.render(
 	<React.StrictMode>
-		<ErrorBoundary>
-			<App />
-		</ErrorBoundary>
+		<App />
 	</React.StrictMode>,
 	document.getElementById("root"),
 )
