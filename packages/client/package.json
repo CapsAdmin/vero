@@ -6,7 +6,6 @@
 	"devDependencies": {
 		"@types/react": "^17.0.37",
 		"@types/react-dom": "^17.0.11",
-		"create-serve": "^1.0.1",
 		"esbuild": "^0.14.5",
 		"esbuild-plugin-import-map": "^2.1.0",
 		"fs-extra": "^10.0.0",
@@ -14,6 +13,7 @@
 	},
 	"dependencies": {
 		"@vero/gui": "workspace",
+		"create-serve": "github:kevinfiol/serve#main",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-native-web": "^0.17.5"

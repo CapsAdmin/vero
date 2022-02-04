@@ -64,4 +64,6 @@ tsc()
 serve.start({
 	port: 3000,
 	root: "./public",
+	index: "index.html",
+	fallback: "index.html",
 })
