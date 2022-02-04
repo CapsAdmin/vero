@@ -1,9 +1,8 @@
-import { BuildShadow } from "../util"
 import { color_util } from "@vero/util/colors"
 import React, { CSSProperties, ReactNode } from "react"
-import { SetupFontFace } from "../util"
+import { ThemeColor, useTheme } from ".."
+import { BuildShadow, InjectFont } from "../util"
 import { BaseTheme } from "./base"
-import { useTheme, ThemeColor } from ".."
 
 const sizes = {
 	none: 0,
@@ -91,14 +90,14 @@ export class Posten1Theme extends BaseTheme {
 			)
 		},
 	}
-	override fonts = SetupFontFace({
-		heading: import("../assets/fonts/FoundryMonolinePN-Bold.ttf"),
-		"body-weak": import("../assets/fonts/FoundryMonolinePN-Regular.ttf"),
-		body: import("../assets/fonts/FoundryMonolinePN-Medium.ttf"),
-		"body-medium": import("../assets/fonts/FoundryMonolinePN-Medium.ttf"),
-		"body-strong": import("../assets/fonts/FoundryMonolinePN-Bold.ttf"),
-		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
-	})
+	override fonts = {
+		heading: InjectFont(import("../assets/fonts/FoundryMonolinePN-Bold.ttf")),
+		"body-weak": InjectFont(import("../assets/fonts/FoundryMonolinePN-Regular.ttf")),
+		body: InjectFont(import("../assets/fonts/FoundryMonolinePN-Medium.ttf")),
+		"body-medium": InjectFont(import("../assets/fonts/FoundryMonolinePN-Medium.ttf")),
+		"body-strong": InjectFont(import("../assets/fonts/FoundryMonolinePN-Bold.ttf")),
+		monospace: InjectFont(import("../assets/fonts/FoundryMonolinePN-Light.ttf")),
+	}
 	override textSizes = {
 		XS: 15,
 		S: 16,

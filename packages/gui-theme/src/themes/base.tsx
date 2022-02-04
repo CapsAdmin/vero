@@ -1,13 +1,13 @@
 import { color_util } from "@vero/util/colors"
 import { InjectCSS } from "@vero/util/css"
-import React, { CSSProperties, ReactElement, ReactNode, useEffect, useState } from "react"
+import React, { CSSProperties, ReactNode } from "react"
 import { FaArrowRight, FaCaretDown, FaCheck, FaEdit, FaEye, FaEyeSlash, FaGlobe } from "react-icons/fa"
 import { GoChevronUp } from "react-icons/go"
 import { IoMdClose } from "react-icons/io"
 import { BorderSizes, ThemeColor, ThemeSizes, useTheme } from "../"
 import SVGBackground from "../assets/images/background.svg"
 import { PNG, SVG } from "../icons"
-import { BuildShadow, SetupFontFace } from "../util"
+import { BuildShadow, InjectFont } from "../util"
 export interface IconProps {
 	style?: CSSProperties
 	size?: string | number
@@ -37,14 +37,14 @@ const colors = color_util.BuildPallete(["hsl(0, 0%, 100%)", "hsl(0, 0%, 23%)"], 
 })
 
 export class BaseTheme {
-	fonts = SetupFontFace({
-		heading: import("../assets/fonts/ChangaOne-Regular.ttf"),
-		"body-weak": import("../assets/fonts/PostenSans-Light.ttf"),
-		body: import("../assets/fonts/PostenSans-Regular.ttf"),
-		"body-medium": import("../assets/fonts/PostenSans-Bold.ttf"),
-		"body-strong": import("../assets/fonts/PostenSans-Bold.ttf"),
-		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
-	})
+	fonts = {
+		heading: InjectFont(import("../assets/fonts/ChangaOne-Regular.ttf")),
+		"body-weak": InjectFont(import("../assets/fonts/PostenSans-Light.ttf")),
+		body: InjectFont(import("../assets/fonts/PostenSans-Regular.ttf")),
+		"body-medium": InjectFont(import("../assets/fonts/PostenSans-Bold.ttf")),
+		"body-strong": InjectFont(import("../assets/fonts/PostenSans-Bold.ttf")),
+		monospace: InjectFont(import("../assets/fonts/FoundryMonolinePN-Light.ttf")),
+	}
 	textSizes = {
 		XS: 12,
 		S: 14,

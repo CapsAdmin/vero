@@ -1,8 +1,8 @@
-import SVGBackground from "../assets/images/ff7.jpg"
-import { useTheme } from "../"
-import { BuildShadow, SetupFontFace } from "../util"
 import { color_util } from "@vero/util/colors"
 import React, { CSSProperties, ReactNode } from "react"
+import { useTheme } from "../"
+import SVGBackground from "../assets/images/ff7.jpg"
+import { BuildShadow, InjectFont } from "../util"
 import { BaseTheme } from "./base"
 
 const gradient = ["#021830", "#03274D", "#062a67", "#154486", "#2471bd"]
@@ -349,14 +349,14 @@ export class JRPGTheme extends BaseTheme {
 		XXXL: 42,
 	}
 
-	override fonts = SetupFontFace({
-		heading: import("../assets/fonts/exo2-regular.ttf"),
-		"body-weak": import("../assets/fonts/exo2-light.ttf"),
-		body: import("../assets/fonts/exo2-regular.ttf"),
-		"body-medium": import("../assets/fonts/exo2-regular.ttf"),
-		"body-strong": import("../assets/fonts/exo2-regular.ttf"),
-		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
-	})
+	override fonts = {
+		heading: InjectFont(import("../assets/fonts/exo2-regular.ttf")),
+		"body-weak": InjectFont(import("../assets/fonts/exo2-light.ttf")),
+		body: InjectFont(import("../assets/fonts/exo2-regular.ttf")),
+		"body-medium": InjectFont(import("../assets/fonts/exo2-regular.ttf")),
+		"body-strong": InjectFont(import("../assets/fonts/exo2-regular.ttf")),
+		monospace: InjectFont(import("../assets/fonts/FoundryMonolinePN-Light.ttf")),
+	}
 	override fontStyle = {
 		textShadow: "0.05em 0.05em 1px rgba(0,0,0,0.5)",
 	}

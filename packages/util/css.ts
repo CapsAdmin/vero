@@ -1,16 +1,11 @@
 import { CSSProperties } from "react"
 const CRC32 = require("crc-32")
 
-const done = new Set<string>()
+export const InjectCSS = (css: string, id?: string) => {
+	const key = id || "injected_css_" + CRC32.str(css)
 
-export const InjectCSS = (css: string) => {
-	if (done.has(css)) {
-		return
-	}
+	const prev = document.getElementById(key)
 
-	done.add(css)
-
-	const prev = document.getElementById(css)
 	if (prev && prev.parentElement) {
 		prev.parentElement.removeChild(prev)
 	}
@@ -18,7 +13,7 @@ export const InjectCSS = (css: string) => {
 	const e = document.createElement("style")
 	e.type = "text/css"
 	e.appendChild(document.createTextNode(css))
-	e.id = css
+	e.id = key
 
 	document.getElementsByTagName("head")[0].appendChild(e)
 }

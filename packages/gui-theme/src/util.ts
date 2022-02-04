@@ -3,31 +3,30 @@ import { InjectCSS } from "@vero/util/css"
 import { Hash, pairs } from "@vero/util/other"
 import { type ThemeColor } from "."
 import { type BaseTheme } from "./themes/base"
-export function SetupFontFace(fonts: {
-	[key in "body" | "body-strong" | "body-weak" | "body-medium" | "heading" | "monospace"]: Promise<any>
-}) {
-	const output = {} as { [key in keyof typeof fonts]: string }
 
-	for (const [name, font] of pairs(fonts)) {
-		;(async () => {
-			const url = (await font).default
-			const uniqueId = "font_" + Hash(name + url)
+let fontId = 0
+export function InjectFont(importPromise: Promise<{default: string}>) {
+	const uniqueId = "font_" + fontId++
 
-			output[name] = uniqueId
-
-			InjectCSS(`
-					@font-face {
-						font-family: '${uniqueId}';
-						src: local('☺'), url(${url}) format('truetype');
-					}
-				`)
-		})()
+	InjectCSS(`
+	@font-face {
+		font-family: '${uniqueId}';
+		src: local('☺'), format('truetype');
 	}
+	`, uniqueId)
 
-	console.log(output)
+	importPromise.then((r) => {
+		InjectCSS(`
+		@font-face {
+			font-family: '${uniqueId}';
+			src: local('☺'), url(${r.default}) format('truetype');
+		}
+		`, uniqueId)
+	})
 
-	return output
+	return uniqueId
 }
+
 
 export const BuildShadow = (
 	shadows: Array<{

@@ -1,7 +1,7 @@
 import { color_util } from "@vero/util/colors"
-import { BuildShadow, SetupFontFace } from "../util"
-import { BaseTheme } from "./base"
 import { useTheme } from "../"
+import { BuildShadow, InjectFont } from "../util"
+import { BaseTheme } from "./base"
 const sizes = {
 	none: 0,
 	line: 1,
@@ -55,14 +55,14 @@ export class MotiveroTheme extends BaseTheme {
 	override muteSounds = true
 	override lineHeight = 7
 
-	override fonts = SetupFontFace({
-		heading: import("../assets/fonts/PostenSans-Medium.ttf"),
-		"body-weak": import("../assets/fonts/PostenSans-Light.ttf"),
-		body: import("../assets/fonts/PostenSans-Regular.ttf"),
-		"body-medium": import("../assets/fonts/PostenSans-Medium.ttf"),
-		"body-strong": import("../assets/fonts/PostenSans-Bold.ttf"),
-		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
-	})
+	override fonts = {
+		heading: InjectFont(import("../assets/fonts/PostenSans-Medium.ttf")),
+		"body-weak": InjectFont(import("../assets/fonts/PostenSans-Light.ttf")),
+		body: InjectFont(import("../assets/fonts/PostenSans-Regular.ttf")),
+		"body-medium": InjectFont(import("../assets/fonts/PostenSans-Medium.ttf")),
+		"body-strong": InjectFont(import("../assets/fonts/PostenSans-Bold.ttf")),
+		monospace: InjectFont(import("../assets/fonts/FoundryMonolinePN-Light.ttf")),
+	}
 	override textSizes = {
 		XS: 8,
 		S: 12,

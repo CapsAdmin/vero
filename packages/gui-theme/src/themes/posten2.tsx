@@ -1,5 +1,5 @@
-import { BuildShadow, SetupFontFace } from "../util"
 import { color_util } from "@vero/util/colors"
+import { BuildShadow, InjectFont } from "../util"
 import { BaseTheme } from "./base"
 const sizes = {
 	none: 0,
@@ -47,14 +47,14 @@ export class Posten2Theme extends BaseTheme {
 	override muteSounds = true
 	override lineHeight = 15
 
-	override fonts = SetupFontFace({
-		heading: import("../assets/fonts/PostenSans-Medium.ttf"),
-		"body-weak": import("../assets/fonts/PostenSans-Light.ttf"),
-		body: import("../assets/fonts/PostenSans-Regular.ttf"),
-		"body-medium": import("../assets/fonts/PostenSans-Medium.ttf"),
-		"body-strong": import("../assets/fonts/PostenSans-Bold.ttf"),
-		monospace: import("../assets/fonts/FoundryMonolinePN-Light.ttf"),
-	})
+	override fonts = {
+		heading: InjectFont(import("../assets/fonts/PostenSans-Medium.ttf")),
+		"body-weak": InjectFont(import("../assets/fonts/PostenSans-Light.ttf")),
+		body: InjectFont(import("../assets/fonts/PostenSans-Regular.ttf")),
+		"body-medium": InjectFont(import("../assets/fonts/PostenSans-Medium.ttf")),
+		"body-strong": InjectFont(import("../assets/fonts/PostenSans-Bold.ttf")),
+		monospace: InjectFont(import("../assets/fonts/FoundryMonolinePN-Light.ttf")),
+	}
 	override textSizes = {
 		XS: 13,
 		S: 14,

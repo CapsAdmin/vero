@@ -116,7 +116,7 @@ const Image = (props: { path: string; color?: string; z?: number; size: number }
 		>
 			<svg style={{ width: 0, height: 0 }}>
 				<filter id={id}>
-					<feColorMatrix color-interpolation-filters="sRGB" type="matrix" values={color_util.FeColorMatrixFromCSSColor(props.color)} />
+					<feColorMatrix colorInterpolationFilters="sRGB" type="matrix" values={color_util.FeColorMatrixFromCSSColor(props.color)} />
 				</filter>
 			</svg>
 			<img
@@ -127,7 +127,7 @@ const Image = (props: { path: string; color?: string; z?: number; size: number }
 					height: props.size,
 					transform: "translate(-3%, -2.5%) scale(1.25)",
 				}}
-				src={"assets/avatars/" + props.path}
+				src={"/assets/avatars/" + props.path}
 			/>
 		</div>
 	)

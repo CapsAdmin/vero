@@ -48,6 +48,10 @@ export const setCurrentTheme = (name: string) => {
 	currentTheme.value = name
 }
 
+export const getCurrentTheme = () => {
+	return currentTheme.value
+}
+
 export const useTheme = () => {
 	const [themeName] = currentTheme.use()
 	const theme = availableThemes.get(themeName) || availableThemes.get("auto")!
