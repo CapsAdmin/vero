@@ -343,58 +343,6 @@ export const InlineCode = (props: { children: string | number }) => {
 	)
 }
 
-export const AnimatedStrong = (props: { children?: ReactNode; style?: CSSProperties; enable?: boolean }) => {
-	return (
-		<div
-			style={{
-				display: "inline",
-				transition: "text-shadow 150ms cubic-bezier(0.000, 0.975, 0.695, 0.675)",
-				textShadow: props.enable ? [0.5, 0.75].map((i) => `0.25px 0 ${i}px currentcolor`).join(",") : undefined,
-				...props.style,
-			}}
-		>
-			{props.children}
-		</div>
-	)
-}
-export const DriverPoints = (props: { points: number; size?: TextSizes; heading?: boolean; decimals?: number }) => {
-	// when size is undefined, make it inherit
-	return (
-		<Text heading={props.heading} color="driverPoints" size={props.size}>
-			{FormatNumber(props.points, props.decimals)}
-			<Icon inline style={{ transform: "translateY(3px)" }} size="IconTiny" type="DriverPoints16"></Icon>
-		</Text>
-	)
-}
-
-export const Time = (props: { ms: number; size?: TextSizes; heading?: boolean; weak?: boolean }) => {
-	return (
-		<Text weak={props.weak} heading={props.heading} size={props.size}>
-			<Icon inline size="IconTiny" type="Time24"></Icon> {FormatTime(props.ms)}
-		</Text>
-	)
-}
-
-export const Deviations = (props: { amount: number; size?: TextSizes; heading?: boolean; weak?: boolean }) => {
-	return (
-		<Text weak={props.weak} heading={props.heading} size={props.size}>
-			{props.amount}
-			&nbsp;
-			{<Icon style={{ display: "inline", transform: "translateY(4px)" }} size="IconTiny" type="Deviation16"></Icon>}
-		</Text>
-	)
-}
-
-export const Packages = (props: { amount: number; size?: TextSizes; heading?: boolean; weak?: boolean }) => {
-	return (
-		<Text weak={props.weak} heading={props.heading} size={props.size}>
-			{FormatNumber(props.amount, 1)}
-			&nbsp;
-			{<Icon style={{ display: "inline", transform: "translateY(4px)" }} size="IconTiny" type="Package16"></Icon>}
-		</Text>
-	)
-}
-
 Showcase(
 	"text properties",
 	() => (
