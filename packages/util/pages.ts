@@ -1,6 +1,5 @@
-import { Clamp } from "./other"
 import { useEffect, useRef, useState } from "react"
-import { getDriverId } from "@frontend/api/driver-resources/userdata"
+import { Clamp } from "./other"
 
 type PageRenderer = (props?: { path?: string }) => JSX.Element | null
 class PageManager {
