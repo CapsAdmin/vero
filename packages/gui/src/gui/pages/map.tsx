@@ -2,11 +2,11 @@ import { getCurrentTheme, useTheme } from "@vero/gui-theme"
 import { InjectCSS } from "@vero/util/css"
 import { Lerp } from "@vero/util/other"
 import { pages } from "@vero/util/pages"
-import { CRS, LatLngTuple, Map as LeafletMap, SVGOverlay as LeafletSvgOverlay } from "leaflet"
+import { CRS, LatLngTuple, Map as LeafletMap } from "leaflet"
 import "leaflet/dist/leaflet.css"
 import "proj4leaflet"
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react"
-import { MapContainer, SVGOverlay, TileLayer } from "react-leaflet"
+import { MapContainer, TileLayer, SVGOverlay } from "react-leaflet"
 import { Box } from "../components/box"
 import { Clickable } from "../components/interactive/clickable"
 import { Column } from "../components/layout/row-column"
@@ -216,17 +216,24 @@ function Map() {
 					if (mapConfig.crs) {
 						map.options.crs = mapConfig.crs
 					}
-					map.setView([59.926958, 10.710272], 10)
+					map.setView([59.926958, 10.710272], 4)
 				}}
 			>
 				<TileLayer
 					ref={(layer) => {
-						if (mapConfig.filter && layer && layer.getContainer()) {
-							layer.getContainer().style.setProperty("filter", mapConfig.filter)
+                        if (mapConfig.filter && layer && layer.getContainer()) {
+                            layer.getContainer().style.setProperty("filter", mapConfig.filter)
 						}
 					}}
 					url={mapConfig.url}
-				/>
+                    />
+                    <SVGOverlay  bounds={[
+  [4.99207807783, 58.0788841824],
+  [31.29341841, 80.6571442736],
+]}>
+    <img  src={"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/2020_Norwegian_Municipalities_Map.svg/1920px-2020_Norwegian_Municipalities_Map.svg.png"}/>
+
+                    </SVGOverlay>
 				{map ? <MapLine map={map} from={terminals[0].point} to={terminals[1].point} /> : null}
 				{map ? <MapLine map={map} from={terminals[1].point} to={terminals[2].point} /> : null}
 				{!map

@@ -5,7 +5,7 @@ import { useEffect } from "react"
 import { ModalLayer } from "./components/modal-layer"
 import { ThemeBackground } from "./components/theme-background"
 import "./global-style.css"
-import { Pages } from "./pages"
+import { pages, Pages } from "./pages"
 import { themeNameSetting } from "./theme"
 import { editTranslationState, LanguageEditToolbar, languageSetting, useDebugLanguageSwitcher } from "./translation"
 import { AppUpdater } from "./widgets/app-updater"
@@ -34,12 +34,11 @@ const Main = () => {
 		useDebugLanguageSwitcher()
 	}
 
+    let MapPage =  pages.Find("map")
+
 	return (
 		<>
-			<ModalLayer />
-			<LanguageEditToolbar />
-			<Pages />
-			<NavigationDrawer />
+			<MapPage />
 			<ThemeBackground key="background" />
 		</>
 	)
