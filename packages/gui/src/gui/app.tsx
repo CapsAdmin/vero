@@ -1,4 +1,4 @@
-import { useDebugThemeSwitcher } from "@vero/gui-theme"
+import { setCurrentTheme, useDebugThemeSwitcher } from "@vero/gui-theme"
 import { location } from "@vero/util/location"
 import { DEBUG } from "@vero/util/other"
 import { useEffect } from "react"
@@ -34,7 +34,7 @@ const Main = () => {
 		useDebugLanguageSwitcher()
 	}
 
-    let MapPage =  pages.Find("map")
+	let MapPage = pages.Find("map")
 
 	return (
 		<>
@@ -50,6 +50,10 @@ export const App = () => {
 	// since we do location.Replace further down outside of react the root
 	// component is dependent on location too
 	location.use()
+
+	useEffect(() => {
+		setCurrentTheme("posten2")
+	}, [])
 
 	return (
 		<>

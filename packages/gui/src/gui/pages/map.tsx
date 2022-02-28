@@ -6,12 +6,13 @@ import { CRS, LatLngTuple, Map as LeafletMap } from "leaflet"
 import "leaflet/dist/leaflet.css"
 import "proj4leaflet"
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react"
-import { MapContainer, TileLayer, SVGOverlay } from "react-leaflet"
-import { Box } from "../components/box"
+import { GeoJSON, MapContainer, SVGOverlay } from "react-leaflet"
+import NorwayCounties from "../../assets/norway.json"
 import { Clickable } from "../components/interactive/clickable"
-import { Column } from "../components/layout/row-column"
-import { H2 } from "../showcase/typography"
+import { Column, Row } from "../components/layout/row-column"
+import { Line } from "../components/line"
 import { Text } from "../typography"
+import MapCircle from "../../assets/images/map-circle.svg"
 
 /*
     navn
@@ -190,7 +191,7 @@ const MapLine = (props: { from: LatLngTuple; to: LatLngTuple; map: LeafletMap })
 					strokeWidth={1}
 					strokeDasharray={(1 / map.getZoom()) * 700}
 					fill="transparent"
-					stroke={theme.colors.textForeground}
+					stroke={theme.colors.textBackground}
 				/>
 			)}
 		</SVGOverlay>
@@ -206,80 +207,110 @@ function Map() {
 
 	const displayMap = useMemo(() => {
 		return (
-			<MapContainer
-				zoomControl={false}
-				key={themeName}
-				style={{ width: "100vw", height: "100vh" }}
-				scrollWheelZoom={true}
-				whenCreated={(map) => {
-					setMap(map)
-					if (mapConfig.crs) {
-						map.options.crs = mapConfig.crs
-					}
-					map.setView([59.926958, 10.710272], 4)
-				}}
-			>
+			<Row itemPadding="L" style={{ padding: theme.sizes.L, flex: 1 }}>
+				<Column style={{ maxWidth: "30vw", flex: 1 }}>
+					<img
+						style={{
+							overflow: "hidden",
+							borderRadius: theme.borderSizes.big,
+						}}
+						src={selectedTerminal.image}
+					></img>
+					<Text heading>{selectedTerminal.name.toUpperCase() + " TERMINALEN"}</Text>
+					<Line strong></Line>
+					<Text>{selectedTerminal.description.toUpperCase()}</Text>
+				</Column>
+				<MapContainer
+					zoomControl={false}
+					key={themeName}
+					style={{
+						flex: 1,
+						background: "transparent",
+					}}
+					scrollWheelZoom={true}
+					whenCreated={(map) => {
+						setMap(map)
+						if (mapConfig.crs) {
+							map.options.crs = mapConfig.crs
+						}
+						map.setView([65, 10], 1, {})
+					}}
+				>
+					<GeoJSON
+						ref={(e) => {
+							if (!e) return
+							if (!map) return
+
+							setTimeout(() => {
+								map.fitBounds(e.getBounds())
+							}, 100)
+						}}
+						style={{
+							fillColor: theme.colors.primary,
+							fillOpacity: 1,
+							color: theme.colors.light,
+							weight: theme.strokeWidth,
+						}}
+						data={NorwayCounties as any}
+					/>
+
+					{/*
 				<TileLayer
 					ref={(layer) => {
-                        if (mapConfig.filter && layer && layer.getContainer()) {
-                            layer.getContainer().style.setProperty("filter", mapConfig.filter)
+						if (mapConfig.filter && layer && layer.getContainer()) {
+							layer.getContainer().style.setProperty("filter", mapConfig.filter)
 						}
 					}}
 					url={mapConfig.url}
-                    />
-                    <SVGOverlay  bounds={[
-  [4.99207807783, 58.0788841824],
-  [31.29341841, 80.6571442736],
-]}>
-    <img  src={"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/2020_Norwegian_Municipalities_Map.svg/1920px-2020_Norwegian_Municipalities_Map.svg.png"}/>
+				/>
+*/}
 
-                    </SVGOverlay>
-				{map ? <MapLine map={map} from={terminals[0].point} to={terminals[1].point} /> : null}
-				{map ? <MapLine map={map} from={terminals[1].point} to={terminals[2].point} /> : null}
-				{!map
-					? null
-					: terminals.map((t) => (
-							<CustomMapComponent map={map} point={t.point}>
-								<Clickable
-									onClick={() => {
-										setSelectedTerminal(t)
+					{map ? <MapLine map={map} from={terminals[0].point} to={terminals[1].point} /> : null}
+					{map ? <MapLine map={map} from={terminals[1].point} to={terminals[2].point} /> : null}
+					{!map
+						? null
+						: terminals.map((t) => (
+								<CustomMapComponent key={t.name} map={map} point={t.point}>
+									<div style={{}}>
+										<Column itemPadding="M">
+											<img
+												style={{ imageRendering: "crisp-edges", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", zIndex: 10 }}
+												src={MapCircle}
+											/>
+											<div></div>
+											<div></div>
+											<Row rowAlign="center">
+												<Clickable
+													onClick={() => {
+														setSelectedTerminal(t)
 
-										let start = map.getCenter()
-										let middlePoint: [number, number] = [Lerp(0.5, start.lat, t.point[0]), Lerp(0.5, start.lng, t.point[1])]
+														let start = map.getCenter()
+														let middlePoint: [number, number] = [Lerp(0.5, start.lat, t.point[0]), Lerp(0.5, start.lng, t.point[1])]
 
-										let zoom = map.getZoom()
+														let zoom = map.getZoom()
 
-										map.flyTo(middlePoint, zoom - 1, {
-											animate: true,
-											duration: 1,
-										})
+														map.flyTo(middlePoint, zoom - 1, {
+															animate: true,
+															duration: 1,
+														})
 
-										map.once("moveend", () => {
-											map.flyTo(t.point, zoom + 2, {
-												animate: true,
-												duration: 5,
-											})
-										})
-									}}
-								>
-									<Text>{t.name}</Text>
-								</Clickable>
-							</CustomMapComponent>
-					  ))}
-
-				<div style={{ position: "absolute", top: theme.sizes.S, left: theme.sizes.S, zIndex: 1000 }}>
-					<Box>
-						<Column style={{ maxWidth: 300 }}>
-							<H2>{selectedTerminal.name}</H2>
-							<Text>6003 pakker</Text>
-							<Text>3052 sorteringer i timen</Text>
-							<Text>333 ansatte sjekket inn</Text>
-							<img style={{ width: 300 }} src={selectedTerminal.image}></img>
-							<Text>{selectedTerminal.description}</Text>
-						</Column>
-					</Box>
-				</div>
-			</MapContainer>
+														map.once("moveend", () => {
+															map.flyTo(t.point, zoom + 2, {
+																animate: true,
+																duration: 5,
+															})
+														})
+													}}
+												>
+													<Text color="textBackground">{t.name}</Text>
+												</Clickable>
+											</Row>
+										</Column>
+									</div>
+								</CustomMapComponent>
+						  ))}
+				</MapContainer>
+			</Row>
 		)
 	}, [map, themeName, selectedTerminal])
 
@@ -287,5 +318,10 @@ function Map() {
 }
 
 pages.Add("map", () => {
-	return <Map />
+	const theme = useTheme()
+	return (
+		<div style={{ display: "flex", height: "100vh", width: "100vw" }}>
+			<Map />
+		</div>
+	)
 })

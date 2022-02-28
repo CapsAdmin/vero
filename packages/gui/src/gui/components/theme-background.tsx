@@ -21,7 +21,6 @@ export const ThemeBackground = (props: { style?: CSSProperties }) => {
 				backgroundSize: "2000px",
 				// backgroundPosition: `${(Math.random() * 2 - 1) * 500}px ${(Math.random() * 2 - 1) * 500}px`,
 
-				opacity: 0.25,
 				mixBlendMode: "revert",
 				...theme?.backgroundStyle,
 				...props.style,

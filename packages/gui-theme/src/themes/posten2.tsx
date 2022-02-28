@@ -1,6 +1,7 @@
 import { color_util } from "@vero/util/colors"
 import { BuildShadow, InjectFont } from "../util"
 import { BaseTheme } from "./base"
+import SVGBackground from "../assets/images/map-background.svg"
 const sizes = {
 	none: 0,
 	line: 1,
@@ -72,7 +73,9 @@ export class Posten2Theme extends BaseTheme {
 	override underlineThickness = 1
 	override shadow = shadow
 	override shadowFooter = shadowFooter
-	override backgroundStyle = { backgroundImage: " " }
+
+	override backgroundStyle = { backgroundImage: "url(" + SVGBackground + ")", backgroundColor: "#FFF5F0" }
+
 	override sizes = {
 		default: sizes.M,
 		IconTiny: 16,
@@ -85,7 +88,7 @@ export class Posten2Theme extends BaseTheme {
 		none: 0,
 		default: this.smallBorderRadius,
 		small: this.smallBorderRadius,
-		big: this.bigBorderRadius,
+		big: this.bigBorderRadius * 16,
 		circle: "50%",
 	}
 	override colors = {
