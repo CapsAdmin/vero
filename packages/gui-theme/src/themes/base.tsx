@@ -1,7 +1,7 @@
 import { color_util } from "@vero/util/colors"
 import { InjectCSS } from "@vero/util/css"
 import React, { CSSProperties, ReactNode } from "react"
-import { FaArrowRight, FaCaretDown, FaCheck, FaEdit, FaEye, FaEyeSlash, FaGlobe } from "react-icons/fa"
+import { FaArrowRight, FaCaretDown, FaCheck, FaEdit, FaEye, FaEyeSlash, FaGlobe, FaPaperclip } from "react-icons/fa"
 import { GoChevronUp } from "react-icons/go"
 import { IoMdClose } from "react-icons/io"
 import { BorderSizes, ThemeColor, ThemeSizes, useTheme } from "../"
@@ -364,6 +364,14 @@ export class BaseTheme {
 				/>
 			</svg>
 		)),
+		MapPoint: SVG((color) => (
+			<svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="32" cy="32" r="7" stroke="#00000025" stroke-width="18" />
+				<circle cx="32" cy="32" r="7" fill={color} />
+				<circle cx="32" cy="32" r="7" stroke="#FFFFFF" stroke-width="3" />
+				<circle cx="32" cy="32" r="21" stroke="#FFFFFF10" />
+			</svg>
+		)),
 		Settings: PNG(import("../assets/icons/Size=24, Icon=Settings.png")),
 		Right: FaArrowRight,
 		Close: IoMdClose,
@@ -519,6 +527,8 @@ export class BaseTheme {
 
 		ThumbsUp24: PNG(import("../assets/icons/Size=24, Icon=ThumbsUp.png")),
 		ThumbsDown24: PNG(import("../assets/icons/Size=24, Icon=ThumbsDown.png")),
+
+		Hint: FaPaperclip,
 	}
 }
 

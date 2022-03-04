@@ -2,6 +2,7 @@ import { color_util } from "@vero/util/colors"
 import { BuildShadow, InjectFont } from "../util"
 import { BaseTheme } from "./base"
 import SVGBackground from "../assets/images/map-background.svg"
+import { FaBox } from "react-icons/fa"
 const sizes = {
 	none: 0,
 	line: 1,
@@ -95,7 +96,7 @@ export class Posten2Theme extends BaseTheme {
 		primary: colors.red,
 		secondary: colors.red,
 
-		positive: "#FF8A5F",
+		positive: "#7BC144",
 		neutral: colors.yellow,
 		negative: "#767676",
 		negativeLight: "#969696",
@@ -153,5 +154,10 @@ export class Posten2Theme extends BaseTheme {
 		productivity: colors.yellow,
 		quality: colors.red,
 		service: colors.blue,
+	}
+
+	override icons = {
+		...new BaseTheme().icons,
+		Package64: FaBox,
 	}
 }

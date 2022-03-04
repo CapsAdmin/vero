@@ -1,4 +1,4 @@
-import { getCurrentTheme, useTheme } from "@vero/gui-theme"
+import { getCurrentTheme, Icon, useTheme } from "@vero/gui-theme"
 import { InjectCSS } from "@vero/util/css"
 import { Lerp } from "@vero/util/other"
 import { pages } from "@vero/util/pages"
@@ -13,7 +13,8 @@ import { Column, Row } from "../components/layout/row-column"
 import { Line } from "../components/line"
 import { Text } from "../typography"
 import MapCircle from "../../assets/images/map-circle.svg"
-
+import { Box } from "../components/box"
+import { FormatNumber } from "../translation"
 /*
     navn
     sist opdatert
@@ -198,6 +199,38 @@ const MapLine = (props: { from: LatLngTuple; to: LatLngTuple; map: LeafletMap })
 	)
 }
 
+const GenericStat = () => {
+	const theme = useTheme()
+
+	return (
+		<Row columnAlign="center">
+			<Box color="positive" style={{ background: "#7BC14460" }} borderSize="circle">
+				<Icon color="lighter" style={{ color: "#00643A" }} size="IconMedium" type="Package64"></Icon>
+			</Box>
+			<Column itemPadding="S">
+				<Text size="L">ANTALL PAKKER HITTIL I ÅR:</Text>
+				<Row columnAlign="end">
+					<Text size="XL">{FormatNumber(2657978)}</Text>
+					<Row columnAlign="center" itemPadding="XS">
+						<div
+							style={{
+								width: 0,
+								height: 0,
+								borderLeft: theme.sizes.M / 2 + "px solid transparent",
+								borderRight: theme.sizes.M / 2 + "px solid transparent",
+								borderBottom: theme.sizes.M / 1.25 + "px solid " + theme.colors.positive,
+							}}
+						></div>
+						<Text color="positive" size="L">
+							7%
+						</Text>
+					</Row>
+				</Row>
+			</Column>
+		</Row>
+	)
+}
+
 function Map() {
 	const theme = useTheme()
 	const themeName = getCurrentTheme()
@@ -208,18 +241,52 @@ function Map() {
 	const displayMap = useMemo(() => {
 		return (
 			<Row itemPadding="L" style={{ padding: theme.sizes.L, flex: 1 }}>
-				<Column style={{ maxWidth: "30vw", flex: 1 }}>
-					<img
-						style={{
-							overflow: "hidden",
-							borderRadius: theme.borderSizes.big,
-						}}
-						src={selectedTerminal.image}
-					></img>
-					<Text heading>{selectedTerminal.name.toUpperCase() + " TERMINALEN"}</Text>
-					<Line strong></Line>
-					<Text>{selectedTerminal.description.toUpperCase()}</Text>
-				</Column>
+				<Box style={{ maxWidth: "30vw", flex: 1 }}>
+					<Column itemPadding="L">
+						<Box color="primary" style={{ position: "relative" }}>
+							<div style={{ position: "absolute", left: "100%", top: 0, width: 300 }}>
+								<Box color="primary">
+									<Row columnAlign="center">
+										<Icon color="textBackground" size="IconLarge" type="Hint"></Icon>
+										<Column itemPadding="S">
+											<Text color="textBackground">FUN FACT:</Text>
+											<Text color="textBackground">120 ansatte fra 10 forskjellige land</Text>
+										</Column>
+									</Row>
+								</Box>
+							</div>
+							<div style={{ position: "absolute", top: "100%", right: "50%" }}>
+								<div
+									style={{
+										transform: "translateX(50%)",
+										width: 0,
+										height: 0,
+										borderLeft: "20px solid transparent",
+										borderRight: "20px solid transparent",
+										borderTop: "20px solid " + theme.colors.primary,
+									}}
+								></div>
+							</div>
+							<Column rowAlign="center">
+								<Row itemPadding="none">
+									<img
+										style={{
+											flex: 1,
+											width: "100%",
+										}}
+										src={selectedTerminal.image}
+									></img>
+								</Row>
+								<Text color="textBackground" heading>
+									{selectedTerminal.name.toUpperCase() + " TERMINAL"}
+								</Text>
+							</Column>
+						</Box>
+
+						<GenericStat />
+						<GenericStat />
+					</Column>
+				</Box>
 				<MapContainer
 					zoomControl={false}
 					key={themeName}
@@ -242,13 +309,16 @@ function Map() {
 							if (!map) return
 
 							setTimeout(() => {
-								map.fitBounds(e.getBounds())
+								map.fitBounds(e.getBounds(), {
+									padding: [0, 0],
+									// todo zoom in a bit
+								})
 							}, 100)
 						}}
 						style={{
-							fillColor: theme.colors.primary,
+							fillColor: "#980100",
 							fillOpacity: 1,
-							color: theme.colors.light,
+							color: "#980100",
 							weight: theme.strokeWidth,
 						}}
 						data={NorwayCounties as any}
@@ -265,20 +335,15 @@ function Map() {
 				/>
 */}
 
-					{map ? <MapLine map={map} from={terminals[0].point} to={terminals[1].point} /> : null}
-					{map ? <MapLine map={map} from={terminals[1].point} to={terminals[2].point} /> : null}
+					{/*map ? <MapLine map={map} from={terminals[0].point} to={terminals[1].point} /> : null*/}
+					{/*map ? <MapLine map={map} from={terminals[1].point} to={terminals[2].point} /> : null*/}
 					{!map
 						? null
 						: terminals.map((t) => (
 								<CustomMapComponent key={t.name} map={map} point={t.point}>
-									<div style={{}}>
-										<Column itemPadding="M">
-											<img
-												style={{ imageRendering: "crisp-edges", position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", zIndex: 10 }}
-												src={MapCircle}
-											/>
-											<div></div>
-											<div></div>
+									<Icon color="primary" type="MapPoint"></Icon>
+									<div style={{ opacity: 1, position: "absolute", top: 0, left: 0 }}>
+										<Box style={{ transform: "translate(-37.5%, -100%)" }}>
 											<Row rowAlign="center">
 												<Clickable
 													onClick={() => {
@@ -302,10 +367,29 @@ function Map() {
 														})
 													}}
 												>
-													<Text color="textBackground">{t.name}</Text>
+													<Column itemPadding="S">
+														<Text strong size="L" noWrap>
+															{t.name.toUpperCase() + " TERMINAL"}
+														</Text>
+														<Text style={{ textAlign: "right" }}>
+															{FormatNumber(t.point[0])}°N. {FormatNumber(t.point[1])}°Ø.
+														</Text>
+													</Column>
 												</Clickable>
 											</Row>
-										</Column>
+											<div style={{ position: "absolute", top: "100%", right: "50%" }}>
+												<div
+													style={{
+														transform: "translateX(50%)",
+														width: 0,
+														height: 0,
+														borderLeft: "10px solid transparent",
+														borderRight: "10px solid transparent",
+														borderTop: "15px solid " + theme.colors.background,
+													}}
+												></div>
+											</div>
+										</Box>
 									</div>
 								</CustomMapComponent>
 						  ))}
