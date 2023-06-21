@@ -4,18 +4,18 @@
 		"build": "node esbuild.mjs"
 	},
 	"devDependencies": {
-		"@types/react": "^17.0.37",
-		"@types/react-dom": "^17.0.11",
-		"esbuild": "^0.14.5",
+		"@types/react": "^18.2.13",
+		"@types/react-dom": "^18.2.6",
+		"esbuild": "^0.18.6",
 		"esbuild-plugin-import-map": "^2.1.0",
-		"fs-extra": "^10.0.0",
-		"typescript": "^4.5.4"
+		"fs-extra": "^11.1.1",
+		"typescript": "^5.1.3"
 	},
 	"dependencies": {
-		"@vero/gui": "workspace",
+		"@vero/gui": "workspace:^",
 		"create-serve": "github:kevinfiol/serve#main",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"react-native-web": "^0.17.5"
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-native-web": "^0.19.5"
 	}
 }
